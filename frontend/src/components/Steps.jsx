@@ -29,19 +29,19 @@ const Steps = () => {
     return (
         <>
             <h2 className="text-center text-4xl text-[#315659] p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
-            <div className="grid gap-2 lg:grid-cols-4 shadow-md text-center m-4">
+            <div className="grid gap-2 lg:grid-cols-4 shadow-md text-center m-4 text-white">
                 {posts.map((items, key) => (
-                    <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-dark" key={key}>
+                    <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-white bg-[#253031]" key={key}>
                         <img
                             className="object-cover w-full md:max-h-56 p-4"
                             src={items.img}
                             alt="Pasos para la compra"
                         />
-                        <div className="cardSteps p-4">
-                            <h4 className="text-xl font-semibold text-[#315659]">
+                        <div className="cardSteps p-4 text-white">
+                            <h4 className="text-2xl font-['Bebas_Neue']">
                                 {items.title}
                             </h4>
-                            <p className="mb-2 leading-normal">
+                            <p className="text-white font-['Oswald']">
                                 {items.content}
                             </p>
                         </div>

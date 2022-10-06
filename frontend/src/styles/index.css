@@ -1,13 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body{
     background-color: #e8e1ef;
 }
 
 .cardSteps h2{
     text-shadow: 2px 8px 45px rgba(0, 0, 0, 0.418);
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Bebas Neue';
+    text-transform: uppercase;
     font-size: xx-large;
     letter-spacing: 0.1rem;
 }
@@ -18,8 +20,9 @@ body{
     font-size: large;
     text-transform: uppercase;
     font-weight: 800 !important;
-    color: black !important;
+    color: white;
     letter-spacing: 0.1rem;
+    padding-top: 2rem;
 
 }
 

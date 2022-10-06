@@ -14,7 +14,7 @@ const Hero = () => {
                 Tienda online de celulares e informática
               </h2>
 
-              <p className="hidden text-white/90 sm:mt-4 sm:block">
+              <p className="text-white/90 sm:mt-4 sm:block">
                 Te ofrecemos las mejores marcas, atención personalizada, los mejores precios, y lo mejor de todo, desde la comodidad de tu hogar.
               </p>
 
@@ -23,7 +23,7 @@ const Hero = () => {
                   href="#"
                   className="buttonCta inline-block rounde bg-teal-700 px-12 py-3 text-sm font-medium transition hover:bg-[#315659] focus:ring focus:ring-teal-700"
                 >
-                  Empieza tu experiencia!
+                  Empezá tu experiencia!
                 </a>
               </div>
             </div>
