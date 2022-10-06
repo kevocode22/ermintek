@@ -1,4 +1,3 @@
-import Carousel from "./components/Carousel";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 

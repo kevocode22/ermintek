@@ -1,5 +1,5 @@
 import React from 'react'
-import 'tw-elements';
+import 'tw-elements'
 
 
 const Carousel = () => {
@@ -9,6 +9,7 @@ const Carousel = () => {
   id="carouselExampleCrossfade"
   className="carousel slide carousel-fade relative"
   data-bs-ride="carousel"
+  autoPlay
 >
   <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
     <button
@@ -39,8 +40,8 @@ const Carousel = () => {
         className="block w-full"
         alt="Cellphones"
       />
-   <div class="carousel-caption hidden md:block absolute text-center">
-        <h5 class="text-xl">Tienda de Celulares e Informática</h5>
+   <div className="textCarousel carousel-caption hidden md:block absolute text-center font-['Bebas_Neue'] text-5xl text-[#53b6b6]">
+        <h5 className="text-6xl">Tienda de Celulares e Informática</h5>
         <p>Encontrá las mejores marcas a los mejores precios</p>
       </div>
     </div>
