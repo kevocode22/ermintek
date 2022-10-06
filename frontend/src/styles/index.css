@@ -1,11 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    background-color: #e8e1ef;
+}
 
-.cardSteps h4{
+.cardSteps h2{
     text-shadow: 2px 8px 45px rgba(0, 0, 0, 0.418);
     font-family: 'Bebas Neue', cursive;
     font-size: xx-large;
+    letter-spacing: 0.1rem;
 }
 
 .cardSteps p{
@@ -13,7 +17,23 @@
     font-family: 'Oswald', sans-serif;
     font-size: large;
     text-transform: uppercase;
+    font-weight: 800 !important;
+    color: black !important;
+    letter-spacing: 0.1rem;
 
+}
+
+.buttonCta{
+    font-family: 'Oswald', sans-serif;
+    font-size: large;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+    color: white !important;
+    letter-spacing: 0.1rem
+
+}
+.buttonCta:hover{
+    color: white !important;
 }
 
 .NavBar{

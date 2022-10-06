@@ -22,13 +22,13 @@ const Steps = () => {
         {
             title: "PASO 4: Esperá que te llegue",
             img: "https://i.imgur.com/wn3RB1N.png",
-            content: "Envíos a todo el país, máximo 1 para entrega, en CABA, los envíos pueden ser de un día para el otro dependiendo el producto solicitado."
+            content: "Envíos a todo el país, máximo 1 semana para entrega. En CABA, los envíos pueden ser de un día para el otro dependiendo el producto solicitado."
         },
     ];
-  
+
     return (
         <>
-        <h2 className="text-center text-4xl text-[#315659] p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
+            <h2 className="text-center text-4xl text-[#315659] p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
             <div className="grid gap-2 lg:grid-cols-4 shadow-md text-center m-4">
                 {posts.map((items, key) => (
                     <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-dark" key={key}>
@@ -42,7 +42,7 @@ const Steps = () => {
                                 {items.title}
                             </h4>
                             <p className="mb-2 leading-normal">
-                            {items.content}
+                                {items.content}
                             </p>
                         </div>
                     </div>
