@@ -31,7 +31,7 @@ const Steps = () => {
             <h2 className="text-center text-4xl text-[#315659] p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
             <div className="grid gap-2 lg:grid-cols-4 shadow-md text-center m-4 text-white">
                 {posts.map((items, key) => (
-                    <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-white bg-[#253031]" key={key}>
+                    <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-white bg-[#25303194]" key={key}>
                         <img
                             className="object-cover w-full md:max-h-56 p-4"
                             src={items.img}

@@ -1,4 +1,4 @@
-const Celular = require('../models/cellphone')
+const Celular = require('../models/xiaomi')
 
 const cellControllers = {
 	getCellPhones: async(req,res)=>{
@@ -34,7 +34,7 @@ const cellControllers = {
 	},
 	
 	addCellPhone: async(req,res)=>{
-		const {name,brand, description, price, image, tags} = req.body
+		const {name,brand, description, features, price, image, tags} = req.body
 		let cellPhone
 		let error = null
 		try{
@@ -42,6 +42,7 @@ const cellControllers = {
 				name:name,
 				brand: brand,
 				description:description,
+				features:features,
 				price: price,
 				image:image,
 				tags: tags

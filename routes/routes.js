@@ -1,8 +1,7 @@
 const Router = require('express').Router();
 
-
 const cellControllers = require('../controllers/cellControllers')
-const {getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone} = cellControllers
+const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = cellControllers
 
 Router.route('/cellphones')
     .get(getCellPhones)
@@ -13,5 +12,4 @@ Router.route('/cellphones/:id')
     .delete(removeCellPhone)
     .put(modifyCellPhone)
 
-
-    module.exports = Router
+module.exports = Router

@@ -6,12 +6,21 @@ body{
     background-color: #e8e1ef;
 }
 
+.cardSteps{
+    width: 90%;
+    height: 100%;
+}
+
 .cardSteps h2{
     text-shadow: 2px 8px 45px rgba(0, 0, 0, 0.418);
-    font-family: 'Bebas Neue';
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 5rem !important;
     text-transform: uppercase;
-    font-size: xx-large;
-    letter-spacing: 0.1rem;
+    line-height: 5.5rem !important;
+    letter-spacing: 0.2rem;
+    padding: 1rem;
+    word-wrap: normal;
+
 }
 
 .cardSteps p{
@@ -41,8 +50,8 @@ body{
 
 .NavBar{
     text-transform: uppercase;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 4rem !important;
+    font-family: 'Fjalla One', sans-serif;
+        font-size: 1.5rem !important;
     letter-spacing: 0.2rem;
 }
 
