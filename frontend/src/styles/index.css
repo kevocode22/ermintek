@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 body{
-    background-color: #e8e1ef;
+    
+    background-image: url("../assets/ermintek.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    stroke: none; 
+    background-color: black
 }
 
 .cardSteps{

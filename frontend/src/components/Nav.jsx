@@ -5,13 +5,15 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import '../styles/index.css'
 import Logo from '../assets/Logos/logoLightTransparent.png'
 import Avatar from '../assets/user.png'
+import { Link as LinkRouter } from 'react-router-dom'
+
 
 const navigation = [
-  { name: 'Inicio', href: '#', current: false },
-  { name: 'Celulares', href: '#', current: false },
-  { name: 'Computadoras', href: '#', current: false },
-  { name: 'Apple', href: '#', current: false },
-  { name: 'Precios', href: '#', current: false },
+  { name: 'Inicio', to: '/', current: false },
+  { name: 'Celulares', to: '/celulares', current: false },
+  { name: 'Computadoras', to: '/computadoras', current: false },
+  { name: 'Apple', to: '/apple', current: false },
+  { name: 'Precios', to: '/precios', current: false },
 ]
 
 function classNames(...classes) {
@@ -21,11 +23,11 @@ function classNames(...classes) {
 const Nav = () => {
   return (
 
-    <Disclosure as="nav" className="NavBar bg-[#315659]">
+    <Disclosure as="nav" className="NavBar bg-[#31565900]">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-20 items-center justify-between">
+            <div className="relative flex h-28 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#04aa9fdc] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -37,25 +39,25 @@ const Nav = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-16 w-16 lg:hidden"
+                    className="block h-10 w-auto lg:hidden"
                     src={Logo}
                     alt="Ermintek"
                   />
                   <img
-                    className="hidden h-16 w-auto lg:block"
+                    className="hidden h-32 w-auto lg:block"
                     src={Logo}
                     alt="Ermintek"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-6 sm:block items-center">
                   <div className="flex space-x-4 mt-3">
                     {navigation.map((item) => (
-                      <a
+                      <LinkRouter
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-[#04AAA0]  hover:text-white',
                           'px-3 py-2 rounded-md text-lg'
@@ -63,7 +65,7 @@ const Nav = () => {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </LinkRouter>
                     ))}
                   </div>
                 </div>
@@ -95,32 +97,23 @@ const Nav = () => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <LinkRouter
+                            to="/perfil"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Mi perfil
-                          </a>
+                          </LinkRouter>
                         )}
                       </Menu.Item>
+
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Ajustes
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
+                          <LinkRouter
+                            to="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-red-700')}
                           >
                             Cerrar Sesión
-                          </a>
+                          </LinkRouter>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -133,18 +126,19 @@ const Nav = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
+                <LinkRouter to={item.to}>
+                  <Disclosure.Button
+                    key={item.name}
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block px-3 py-2 rounded-md text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                </LinkRouter>
+
               ))}
             </div>
           </Disclosure.Panel>
