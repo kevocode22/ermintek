@@ -15,9 +15,8 @@ const celularSchema = new mongoose.Schema({
         "8/128": { type: Number },
         "8/256": { type: Number },
         "12/256": { type: Number },
-        
     },
-    review:{ type: String},
+    review: { type: String },
     tags: { type: String }
 })
 

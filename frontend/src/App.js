@@ -7,7 +7,7 @@ import Computadoras from './pages/Computadoras'
 import Precios from './pages/Precios'
 import Apple from './pages/Apple'
 import ScrollToTop from "react-scroll-to-top";
-
+import 'tw-elements'
 
 function App() {
   return (

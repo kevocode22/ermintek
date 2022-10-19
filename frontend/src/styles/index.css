@@ -2,21 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    
+body {
+
     background-image: url("../assets/ermintek.svg");
     background-attachment: fixed;
     background-size: cover;
-    stroke: none; 
-    background-color: black
+    stroke: none;
+    background-color: rgba(0, 0, 0, 0.856)
 }
 
-.cardSteps{
+/*ScrollBar*/
+body::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    opacity: 7 !important;
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #e46804;
+    border-radius: 1rem;
+}
+
+
+
+.cardSteps {
     width: 90%;
     height: 100%;
 }
 
-.cardSteps h2{
+.cardSteps h2 {
     text-shadow: 2px 8px 45px rgba(0, 0, 0, 0.418);
     font-family: 'Fjalla One', sans-serif;
     font-size: 5rem !important;
@@ -28,7 +42,7 @@ body{
 
 }
 
-.cardSteps p{
+.cardSteps p {
     padding: 0.5rem;
     font-family: 'Oswald', sans-serif;
     font-size: large;
@@ -40,26 +54,26 @@ body{
 
 }
 
-.buttonCta{
+.buttonCta {
     font-family: 'Oswald', sans-serif;
     font-size: large;
     text-transform: uppercase;
     font-weight: 800 !important;
     color: white !important;
     letter-spacing: 0.1rem
-
 }
-.buttonCta:hover{
+
+.buttonCta:hover {
     color: white !important;
 }
 
-.NavBar{
+.NavBar {
     text-transform: uppercase;
-    font-family: 'Fjalla One', sans-serif;
-        font-size: 1.5rem !important;
-    letter-spacing: 0.2rem;
+    font-family: 'Fjalla One';
+    font-size: small !important;
+    letter-spacing: 0.14rem;
 }
 
-.textCarousel{
+.textCarousel {
     text-shadow: 2px 2px 2px black;
 }

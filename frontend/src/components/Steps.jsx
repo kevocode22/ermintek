@@ -28,7 +28,7 @@ const Steps = () => {
 
     return (
         <>
-            <h2 className="text-center text-4xl text-[#315659] p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
+            <h2 className="text-center text-4xl text-white mt-10 p-4 font-['Bebas_Neue']">¿Cómo funciona?</h2>
             <div className="grid gap-2 lg:grid-cols-4 shadow-md text-center m-4 text-white">
                 {posts.map((items, key) => (
                     <div className="w-full rounded-xl shadow-xl lg:max-w-sm p-7 text-white bg-[#25303194]" key={key}>

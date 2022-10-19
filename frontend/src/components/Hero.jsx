@@ -1,20 +1,57 @@
 import React from 'react'
 import '../styles/index.css'
-import Iphone from '../assets/iphone14proMax.png'
+import bgXiaomi from '../assets/xiaomibg.png'
+import 'tw-elements';
+
 const Hero = () => {
 
   return (
 
-    <aside>
-      <div className="w-full sm:px-6 lg:px-8">
-       <div className='w-full flex justify-center items-center'>
-        <div className='text-white  text-5xl text-center w-1/2'> <h2 className='font-["Fjalla_One"] text-8xl leading-tight'>TIENDA DE CELULARES E INFORMÁTICA</h2>
-        <h3 className='text-4xl font-["Bebas_Neue"]'>Las mejores marcas y los mejores precios</h3></div>
-        <div><img src={Iphone} alt="" style={{"height":"30rem"}} /></div>
-     
-       </div>
+    <div id="carouselExampleCaptions" className="carousel slide relative " data-bs-ride="carousel">
+      <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          className="active pt-4 "
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+          className='pt-4'
+        ></button>
       </div>
-    </aside>
+      <div className="carousel-inner relative w-full overflow-hidden ">
+        <div className="carousel-item active relative float-left w-full">
+          <img
+            src={bgXiaomi}
+            className="block w-full object-contain"
+            alt="..."
+            style={{ "height": "30rem", "width": "100%", paddingBottom: "5rem"}}
+          />
+          <div className="carousel-caption hidden md:block absolute text-center">
+            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>TIENDA DE CELULARES E INFORMÁTICA</h2>
+            
+          </div>
+        </div>
+        <div className="carousel-item relative float-left w-full">
+          <img
+            src="https://www.sagernotebook.com/images/T/NP3643_index.png"
+            className="block w-full object-contain"
+            alt="..."
+            style={{ "height": "30rem", "width": "100%" }}
+          />
+          <div className="carousel-caption hidden md:block absolute text-center">
+            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>NOTEBOOKS Y PC DE ESCRITORIO</h2>
+          </div>
+        </div>
+      </div>
+   
+    </div>
 
   )
 }
