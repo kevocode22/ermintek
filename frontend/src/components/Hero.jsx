@@ -13,7 +13,7 @@ const Hero = () => {
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="0"
-          className="active pt-4 "
+          className="active"
           aria-current="true"
           aria-label="Slide 1"
         ></button>
@@ -25,7 +25,7 @@ const Hero = () => {
           className='pt-4'
         ></button>
       </div>
-      <div className="carousel-inner relative w-full overflow-hidden ">
+      <div className="carousel-inner relative w-full overflow-hidden">
         <div className="carousel-item active relative float-left w-full">
           <img
             src={bgXiaomi}

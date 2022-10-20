@@ -3,40 +3,40 @@ import Logo from '../assets/Logos/logoDarkTransparent.png'
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-100 font-['Oswald']">
+        <footer className="bg-gray-900 text-white font-['Oswald']">
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-                <div className="flex justify-center text-teal-600">
+                <div className="flex justify-center text-white">
                     <img src={Logo} className="h-28" alt="Ermintek Logo" />
                 </div>
 
-                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-white">
                     Tienda online de celulares y productos de informática.
                 </p>
 
                 <nav className="mt-12" aria-labelledby="footer-navigation">
                     <h2 className="sr-only" id="footer-navigation">Footer navigation</h2>
 
-                    <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+                    <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12 text-white">
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className="transition hover:text-[#e46804]" href="/">
                                 Sobre Nosotros
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className="transition hover:text-[#e46804]" href="/">
                                 Celulares
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className="transition hover:text-[#e46804]" href="/">
                                 Computadoras
                             </a>
                         </li>
 
                         <li>
-                            <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                            <a className=" transition hover:text-[#e46804]" href="/">
                                 Apple
                             </a>
                         </li>
@@ -49,7 +49,7 @@ const Footer = () => {
                             href="https://facebook.com/ermintek"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-gray-700 transition hover:text-gray-700/75"
+                            className="text-gray-400 transition hover:text-[#e46804]"
                         >
                             <span className="sr-only">Facebook</span>
                             <svg
@@ -72,7 +72,7 @@ const Footer = () => {
                             href="/"
                             rel="noreferrer"
                             target="_blank"
-                            className="text-gray-700 transition hover:text-gray-700/75"
+                            className="text-gray-400 transition hover:text-[#e46804]"
                         >
                             <span className="sr-only">Instagram</span>
                             <svg

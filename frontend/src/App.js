@@ -23,7 +23,7 @@ function App() {
       </Routes>
       <Footer />
       <ScrollToTop
-        style={{ backgroundColor: "#ff8e72" }}
+        style={{ backgroundColor: "#e46804", paddingLeft:"0.4rem", borderRadius:"50%"}}
         smooth
       />
     </>
