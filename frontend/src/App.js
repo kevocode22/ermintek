@@ -8,8 +8,20 @@ import Precios from './pages/Precios'
 import Apple from './pages/Apple'
 import ScrollToTop from "react-scroll-to-top";
 import 'tw-elements'
+import { useEffect } from "react";
+import {useDispatch} from 'react-redux'
+import celularesActions from "./redux/actions/celularesActions";
 
 function App() {
+
+  const dispatch= useDispatch();
+
+useEffect(()=>{
+let res= dispatch(celularesActions.getCelulares())
+console.log(res)
+//eslint-disable-next-line
+},[])
+
   return (
     <>
       <Nav />

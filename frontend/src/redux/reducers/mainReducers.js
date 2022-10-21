@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
+import celularesReducer  from './celularesReducer';
 
-
-export const mainReducers = combineReducers({
-
+const mainReducer = combineReducers({
+celularesReducer
 })
+
+export default mainReducer
 
