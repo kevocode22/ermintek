@@ -8,6 +8,7 @@ const celularSchema = new mongoose.Schema({
         img1: { type: String },
         img2: { type: String }
     },
+    features: {type: String},
     price: {
         "4/64": { type: Number },
         "4/128": { type: Number },
