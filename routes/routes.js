@@ -7,8 +7,7 @@ const userControllers = require('../controllers/userControllers')
 const { getUsers, signIn, signUp, verifyToken } = userControllers
 
 const cartControllers = require('../controllers/cartControllers');
-const { deleteProduct } = require('../controllers/cartControllers');
-const { addProduct, modifyProduct, removeProduct, getCartProducts } = cartControllers
+const { addProduct, modifyProduct, deleteProduct, getCartProducts } = cartControllers
 
 Router.route('/cellphones')
     .get(getCellPhones)
@@ -26,5 +25,12 @@ Router.route('/cart')
 Router.route('/cart/:id')
     .put(modifyProduct)
     .delete(deleteProduct)
+
+    Router.route('/registrarse')
+    .post(signUp)
+    
+    Router.route('/iniciarsesion')
+    .post(signIn)
+
 
 module.exports = Router

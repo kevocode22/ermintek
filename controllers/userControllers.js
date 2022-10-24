@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const usuariosControllers = {
     signUp: async (req, res) => {
         console.log(req.body);
-        const { nombre, apellido, email, contraseña, imagen, from } = req.body.data; //utilizo "data" en la action de logueo
+        const { nombre, apellido, email, contraseña, imagen, from } = req.body; 
         try {
             const usuarioExiste = await Usuario.findOne({ email });  //si el usuario existe
             const verification = false;
@@ -73,8 +73,8 @@ const usuariosControllers = {
         }
     },
     signIn: async (req, res) => { //para iniciar sesion
-        const { email, password, from } = req.body.logueado;
-        console.log(req.body.logueado)
+        const { email, password, from } = req.body;
+        console.log(req.body)
         try {
             const usuarioExiste = await Usuario.findOne({ email });
             if (!usuarioExiste) {
@@ -101,7 +101,7 @@ const usuariosControllers = {
                         await usuarioExiste.save();
                         const token = jwt.sign({ ...usuarioData },
                             process.env.SECRET_KEY, {
-                            expiresIn: 1000 * 60 * 60 * 24,
+                            expiresIn: 86400,
                         });
                         res.json({
                             response: { token, usuarioData },
