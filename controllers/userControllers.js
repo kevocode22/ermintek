@@ -1,7 +1,7 @@
-const Usuario = require('../models/usuario');
+const Usuario = require('../models/user');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const enviarVerificacion = require('./sendVerification'); //falta hacer credeniciales google
+const enviarVerificacion = require('../config/sendVerification'); 
 const crypto = require('crypto');
 
 
@@ -24,7 +24,7 @@ const usuariosControllers = {
                     const passwordhashed = bcryptjs.hashSync(contraseña, 10);
                     usuarioExiste.contraseña.push(passwordhashed);
                     usuarioExiste.from.push(from);
-                    usuarioExiste.verification = true; //estaba verificarion xd
+                    usuarioExiste.verification = true; 
                     await usuarioExiste.save();
                     res.json({
                         success: true,

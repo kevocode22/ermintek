@@ -4,10 +4,11 @@ const cellControllers = require('../controllers/cellControllers')
 const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = cellControllers
 
 const userControllers = require('../controllers/userControllers')
-const{getUsers, signIn, signUp, verifyToken} = userControllers
+const { getUsers, signIn, signUp, verifyToken } = userControllers
 
-const cartControllers = require('../controllers/cartControllers')
-const {addProduct, modifyProduct, removeProduct, getCartProducts} = cartControllers
+const cartControllers = require('../controllers/cartControllers');
+const { deleteProduct } = require('../controllers/cartControllers');
+const { addProduct, modifyProduct, removeProduct, getCartProducts } = cartControllers
 
 Router.route('/cellphones')
     .get(getCellPhones)
@@ -24,7 +25,6 @@ Router.route('/cart')
 
 Router.route('/cart/:id')
     .put(modifyProduct)
-    .delete(removeProduct)
-    
+    .delete(deleteProduct)
 
 module.exports = Router
