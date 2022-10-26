@@ -1,4 +1,6 @@
 const Router = require('express').Router();
+const passport = require('../config/passport');
+const validator = require('../config/validator');
 
 const cellControllers = require('../controllers/cellControllers')
 const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = cellControllers
@@ -19,18 +21,20 @@ Router.route('/cellphones/:id')
     .put(modifyCellPhone)
 
 Router.route('/cart')
-    .get(getCartProducts)
-    .post(addProduct)
+.get(passport.authenticate('jwt', {session: false}),getCartProducts)    
+.post(addProduct)
 
 Router.route('/cart/:id')
     .put(modifyProduct)
     .delete(deleteProduct)
 
     Router.route('/registrarse')
-    .post(signUp)
+    .post(validator, signUp)
     
     Router.route('/iniciarsesion')
     .post(signIn)
+
+
 
 
 module.exports = Router

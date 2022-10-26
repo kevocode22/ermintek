@@ -19,7 +19,7 @@ export default function GoogleSignIn() {
         }))
         if (res.data.success) {
             toast.success(res.data.message)
-            navigate('/signin')
+            navigate('/')
         } else {
             toast.error(res.data.message)
         }
@@ -35,7 +35,7 @@ export default function GoogleSignIn() {
 
         google.accounts.id.renderButton(
             document.getElementById('buttonID'),
-            { theme: "filled_black", size: "small", locale: 'en', text: 'signin_with', shape: "pill" }
+            { type: "icon", size: "medium", shape: "square" }
         )
         // eslint-disable-next-line
     });

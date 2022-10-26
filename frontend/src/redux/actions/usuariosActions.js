@@ -49,10 +49,12 @@ const usuariosActions = {
 
     desloguearse: () => {
         return async (dispatch, getState) => {
-            localStorage.removeItem('token')
+          localStorage.removeItem('token')
             dispatch({
                 type: 'USER',
-                payload: null
+                payload:{
+                    message: "Thanks for your visit"
+                } 
             })
         }
     },

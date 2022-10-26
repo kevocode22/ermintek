@@ -40,7 +40,7 @@ export default function GoogleSignUp() {
 
         google.accounts.id.renderButton(
             document.getElementById("buttonDiv"),
-            { theme: "filled_black", size: "small", locale: 'en', text: 'signup_with', shape: "pill" }
+            { type: "icon", size: "medium", shape: "square" }
         )
     });
 

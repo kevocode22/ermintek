@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import usuariosActions from "../redux/actions/usuariosActions";
 import toast from 'react-hot-toast';
+import GoogleSignIn from "./GoogleSingIn";
+import GoogleSignUp from "./GoogleSignUp";
 
 const LoginRegister = () => {
     const [addclass, setaddclass] = useState("");
@@ -60,7 +62,7 @@ const LoginRegister = () => {
     return (
         <div className="formContainer">
             <div className={`container ${addclass}`} id="container">
-                <div className="form-container sign-up-container font-['Oswald'] text-lg">
+                <div className="form-container sign-up-container font-['Oswald'] font-semibold  text-lg">
                     <form onSubmit={signUpSubmit}>
                         <img src={Brand} alt="ermintek-logo" className="h-24" />
                         <h1>Crear Cuenta</h1>
@@ -78,9 +80,12 @@ const LoginRegister = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                             </svg><input required type="password" placeholder="Contraseña" /></span>
                         <button className="formButton" type="submit">Registrarse</button>
+                        <div className="flex justify-center mt-3"> <p className='mr-2' >o registrate con Google </p>
+                        <GoogleSignUp /></div>
+                       
                     </form>
                 </div>
-                <div className="form-container sign-in-container font-['Oswald'] text-lg">
+                <div className="form-container sign-in-container font-['Oswald'] font-semibold text-lg">
                     <form onSubmit={loginSubmit}>
                         <img src={Brand} alt="ermintek-logo" className="h-24" />
                         <h1>Inicia sesión</h1>
@@ -93,6 +98,9 @@ const LoginRegister = () => {
                             </svg><input type="password" required placeholder="Mi contraseña" /></span>
 
                         <button className="formButton" type="submit">Iniciar sesión</button>
+                        <div className="flex justify-center mt-3">  <p className='mr-2'>o inicia sesión con Google:</p>
+                        <GoogleSignIn /></div>
+                      
                     </form>
                 </div>
                 <div className="overlay-container">

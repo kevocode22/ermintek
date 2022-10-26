@@ -148,16 +148,13 @@ input {
 }
 
 .ghost {
-    background-color: #222529;
-    color: whitesmoke!important;
     padding: 0.3rem;
-    border-radius: 5px;
-   
+    color: #222529;
 }
 
- .ghost:hover{
-    background-color: #e46804;
-    color: whitesmoke!important;
+.ghost:hover {
+    color: #000000 !important;
+    text-shadow: 2px 2px 2px #e46804;
 }
 
 .formButton {

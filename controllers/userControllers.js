@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const usuariosControllers = {
     signUp: async (req, res) => {
         console.log(req.body);
-        const { nombre, apellido, email, contraseña, imagen, from } = req.body; 
+        const { nombre, apellido, email, contraseña, imagen, from } = req.body.userData; 
         try {
             const usuarioExiste = await Usuario.findOne({ email });  //si el usuario existe
             const verification = false;
@@ -50,7 +50,7 @@ const usuariosControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: `Ya te registraste por ${from}, ya podes ingresar 😁!`,
+                        message: `Ya te registraste, ya podes ingresar!`,
                     });
 
                 } else {
@@ -59,7 +59,7 @@ const usuariosControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: `Te enviamos un email a ${email} para que puedas finalizar el registro 📧`,
+                        message: `Te enviamos un email a tu casilla para que puedas finalizar el registro`,
                     });
                 }
             }
@@ -72,8 +72,9 @@ const usuariosControllers = {
             console.log(error)
         }
     },
+
     signIn: async (req, res) => { //para iniciar sesion
-        const { email, password, from } = req.body;
+        const { email, password, from } = req.body.loginUser;
         console.log(req.body)
         try {
             const usuarioExiste = await Usuario.findOne({ email });
@@ -131,7 +132,7 @@ const usuariosControllers = {
                         await usuarioExiste.save();
                         const token = jwt.sign({ ...usuarioData },
                             process.env.SECRET_KEY, {
-                            expiresIn: 1000 * 60 * 60 * 24,
+                            expiresIn: 86400,
                         }
                         );
                         res.json({

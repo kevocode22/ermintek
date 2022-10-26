@@ -4,18 +4,18 @@ const Shopping = require('../models/shoppingCart')
 const cartControllers = {
 
     addProduct: async (req, res) => {
-        console.log(req.body)
-        const { idPack } = req.body
-        const idUsuario = req.user._id
+        const { idProducto } = req.body
+        const idUsuario = req.body._id
+        console.log("USUARIOOO", idUsuario)
         let cantidad = 1
         try {
-            let carritoExiste = await Shopping.findOne({ idPack, idUsuario })
+            let carritoExiste = await Shopping.findOne({ idProducto, idUsuario:idUsuario })
            
             if (carritoExiste !== null) {
                 console.log("CONSOLAAAAAAAA",carritoExiste)
 
                 cantidad = carritoExiste.cantidad + 1
-                const shopping = await Shopping.findOneAndUpdate({ idPack, idUsuario }, {
+                const shopping = await Shopping.findOneAndUpdate({ idProducto, idUsuario }, {
                     $set: {
                         "cantidad": cantidad
                     }
@@ -27,7 +27,7 @@ const cartControllers = {
                 })
             }
             else {
-                const shopping = await Shopping({ idPack, idUsuario, cantidad }).save()
+                const shopping = await Shopping({ idProducto, idUsuario, cantidad }).save()
                 res.json({
                     success: true,
                     response: { shopping },
@@ -47,12 +47,13 @@ const cartControllers = {
 
     getCartProducts: async (req, res) => {
         const idUsuario = req.user._id
+        console.log("consolaaaaaaaaaaaa",req.user._id)
         let shopping;
         const error = null;
         try {
-            shopping = await Shopping.find({ idUsuario: idUsuario })
-                .populate("idUsuario", { nombre: 1, apellido: 1, email: 1 })
-                .populate("idPack", { nombre: 1, Precio: 1, imagen: 1, descripcion: 1, cantidad: 1 })
+            shopping = await Shopping.find({ idUsuario })
+                .populate("idUsuario", { nombre: 1, email: 1 })
+                .populate("idProducto", { name: 1, brand: 1, image:{img1:1}, description: 1, cantidad: 1 })
             console.log(shopping)
         } catch (err) {
             error = err
@@ -92,7 +93,7 @@ const cartControllers = {
         const idProduct = req.params.id
         console.log(idProduct)
         try {
-            const respuesta = await Shopping.findOneAndDelete({ _id: idProduct })
+            await Shopping.findOneAndDelete({ _id: idProduct })
             res.json({
                 success: true,
                 message: "Eliminamos el producto 👍"

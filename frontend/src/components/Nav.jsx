@@ -5,7 +5,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import '../styles/index.css'
 import Logo from '../assets/Logos/logoLightTransparent.png'
 import Avatar from '../assets/user.png'
-import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import usuariosActions from '../redux/actions/usuariosActions'
+import toast from 'react-hot-toast'
 
 
 const navigation = [
@@ -21,6 +24,19 @@ function classNames(...classes) {
 }
 
 const Nav = () => {
+const navigate = useNavigate()
+const dispatch = useDispatch()
+
+const usuario = useSelector(store=> store.usuariosReducer.user)
+console.log(usuario)
+
+  async function desloguearse() {
+    await dispatch(usuariosActions.desloguearse())
+    toast("Te esperamos pronto!")
+    navigate("/home", { replace: true })
+        
+  }
+
 
 
   return (
@@ -72,13 +88,14 @@ const Nav = () => {
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
+                 
                   <div className='flex px-4'>
-                                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                      <Menu.Button  as="div" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={Avatar}
-                        alt="avatar"
+                        src={usuario && usuario.imagen ? `${usuario?.imagen}` : `${Avatar}`}
+                        alt="avatar"  
                       />
                     </Menu.Button>
                   </div>
@@ -108,6 +125,7 @@ const Nav = () => {
                           <LinkRouter
                             to="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-red-700')}
+                            onClick={desloguearse}
                           >
                             Cerrar Sesión
                           </LinkRouter>
