@@ -21,6 +21,8 @@ function classNames(...classes) {
 }
 
 const Nav = () => {
+
+
   return (
 
     <Disclosure as="nav" className="bg-[#31565900] uppercase NavBar">
@@ -93,10 +95,10 @@ const Nav = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <LinkRouter
-                            to="/perfil"
+                            to="/signin"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Mi perfil
+                            Iniciar Sesión
                           </LinkRouter>
                         )}
                       </Menu.Item>
