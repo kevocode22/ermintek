@@ -82,11 +82,10 @@ const usuariosControllers = {
                 res.json({
                     success: false,
                     from: "no from",
-                    message: "El usuario no existe, por favor registrate 😁"
+                    message: "El usuario no existe, por favor registrate"
                 });
             } else if (usuarioExiste.verification) {
                 let passwordMatch = usuarioExiste.contraseña.filter((pass) => bcryptjs.compareSync(password, pass));
-
                 if (from === "formulario-inicio") { //formulario de inicio de sesion
                     if (passwordMatch.length > 0) {
                         const usuarioData = {
@@ -102,7 +101,7 @@ const usuariosControllers = {
                         await usuarioExiste.save();
                         const token = jwt.sign({ ...usuarioData },
                             process.env.SECRET_KEY, {
-                            expiresIn: 86400,
+                            expiresIn: 1000 * 60 * 60 * 24,
                         });
                         res.json({
                             response: { token, usuarioData },
@@ -132,7 +131,7 @@ const usuariosControllers = {
                         await usuarioExiste.save();
                         const token = jwt.sign({ ...usuarioData },
                             process.env.SECRET_KEY, {
-                            expiresIn: 86400,
+                            expiresIn: 1000 * 60 * 60 * 24,
                         }
                         );
                         res.json({

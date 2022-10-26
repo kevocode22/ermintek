@@ -60,16 +60,14 @@ const usuariosActions = {
     },
 
     verificarToken: (token) => {
-        // console.log(token)
-
         return async (dispatch, getState) => {
-
-            await axios.get(localUrl, {
+             await axios.get(`${localUrl}/api/verificartoken`, {
                 headers: {
                     "Authorization": "Bearer " + token //el header espera una autoriz. metodo para autenticar y autozar el usuario
                 }
             })
                 .then(res => {
+                    console.log(res)
                     if (res.data.success) {
                         dispatch({ type: "USER", payload: res.data.response });
                         dispatch({
@@ -79,7 +77,9 @@ const usuariosActions = {
                                 message: res.data.message,
                                 success: res.data.success
                             }
-                        });
+                        })
+                        console.log(token)
+                        ;
                     } else { localStorage.removeItem("token") }
                 })
                 .catch(error => {

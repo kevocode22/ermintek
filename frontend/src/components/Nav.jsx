@@ -95,7 +95,7 @@ console.log(usuario)
                       <img
                         className="h-8 w-8 rounded-full"
                         src={usuario && usuario.imagen ? `${usuario?.imagen}` : `${Avatar}`}
-                        alt="avatar"  
+                        alt="avatar"
                       />
                     </Menu.Button>
                   </div>

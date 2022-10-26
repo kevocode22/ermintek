@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
+const { Schema } = mongoose;
+
 
 const cartSchema = new mongoose.Schema ({
-    idProducto: {type:mongoose.Types.ObjectId, ref:'xiaomi'},
-    idUsuario: {type:mongoose.Types.ObjectId, ref:'usuarios'},
+    idProducto: {type: Schema.Types.ObjectId, ref:'xiaomi'},
+    idUsuario: {type: Schema.Types.ObjectId, ref:'usuarios'},
     cantidad: {type:Number},
     fecha: {
         reservado: {type:Date},
@@ -12,5 +14,5 @@ const cartSchema = new mongoose.Schema ({
     estadoDeCompra: {type:String}
 })
 
-const Shopping = mongoose.model('carritos',cartSchema)
-module.exports = Shopping
+const shoppingCart = mongoose.model('carritos',cartSchema)
+module.exports = shoppingCart

@@ -21,8 +21,7 @@ function App() {
   const dispatch= useDispatch();
 
 useEffect(()=>{
-let res= dispatch(celularesActions.getCelulares())
-console.log(res)
+dispatch(celularesActions.getCelulares())
 if (localStorage.getItem('token') !== null) {
   const token = localStorage.getItem("token")
   dispatch(usuariosActions.verificarToken(token))

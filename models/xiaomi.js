@@ -21,5 +21,5 @@ const celularSchema = new mongoose.Schema({
     tags: { type: String }
 })
 
-const Celular = mongoose.model('xiaomi', celularSchema)
-module.exports = Celular
+const xiaomi = mongoose.model('xiaomi', celularSchema)
+module.exports = xiaomi

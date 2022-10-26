@@ -6,10 +6,10 @@ const cellControllers = require('../controllers/cellControllers')
 const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = cellControllers
 
 const userControllers = require('../controllers/userControllers')
-const { getUsers, signIn, signUp, verifyToken } = userControllers
+const { signIn, signUp, verifyToken, verifyMail } = userControllers
 
 const cartControllers = require('../controllers/cartControllers');
-const { addProduct, modifyProduct, deleteProduct, getCartProducts } = cartControllers
+const { addProduct, modifyProduct, deleteProduct, getUserProducts } = cartControllers
 
 Router.route('/cellphones')
     .get(getCellPhones)
@@ -21,12 +21,12 @@ Router.route('/cellphones/:id')
     .put(modifyCellPhone)
 
 Router.route('/cart')
-.get(passport.authenticate('jwt', {session: false}),getCartProducts)    
-.post(addProduct)
+.get(passport.authenticate('jwt', {session: false}), getUserProducts)    
+.post(passport.authenticate('jwt', {session:false}), addProduct)
 
 Router.route('/cart/:id')
-    .put(modifyProduct)
-    .delete(deleteProduct)
+.get(passport.authenticate('jwt', {session: false}), modifyProduct)
+    .delete(passport.authenticate('jwt', {session: false}), deleteProduct)
 
     Router.route('/registrarse')
     .post(validator, signUp)
@@ -34,6 +34,11 @@ Router.route('/cart/:id')
     Router.route('/iniciarsesion')
     .post(signIn)
 
+    Router.route('/verificartoken')
+    .get(passport.authenticate('jwt', { session: false }), verifyToken)
+
+    Router.route('/verificar/:string')
+    .get(verifyMail)
 
 
 
