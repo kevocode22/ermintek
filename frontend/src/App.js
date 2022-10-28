@@ -14,7 +14,8 @@ import celularesActions from "./redux/actions/celularesActions";
 import SignIn from "./pages/SignIn";
 import { Toaster } from 'react-hot-toast';
 import usuariosActions from './redux/actions/usuariosActions'
-
+import laptopsActions from "./redux/actions/laptopsActions";
+import macBooksActions from "./redux/actions/macBooksActions";
 
 function App() {
 
@@ -22,6 +23,8 @@ function App() {
 
 useEffect(()=>{
 dispatch(celularesActions.getCelulares())
+dispatch(laptopsActions.getLaptops())
+dispatch(macBooksActions.getmacBooks())
 if (localStorage.getItem('token') !== null) {
   const token = localStorage.getItem("token")
   dispatch(usuariosActions.verificarToken(token))

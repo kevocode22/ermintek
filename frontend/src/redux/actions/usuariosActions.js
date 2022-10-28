@@ -5,7 +5,7 @@ let localUrl = 'http://localhost:4000'
 const usuariosActions = {
 
     registrarse: (userData) => {
-        console.log(userData)
+        // console.log(userData)
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(localUrl + `/api/registrarse`,{userData})
@@ -19,7 +19,7 @@ const usuariosActions = {
                 })
                 return res
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
 
         }
@@ -67,7 +67,7 @@ const usuariosActions = {
                 }
             })
                 .then(res => {
-                    console.log(res)
+                    // console.log(res)
                     if (res.data.success) {
                         dispatch({ type: "USER", payload: res.data.response });
                         dispatch({
@@ -78,7 +78,7 @@ const usuariosActions = {
                                 success: res.data.success
                             }
                         })
-                        console.log(token)
+                        // console.log(token)
                         ;
                     } else { localStorage.removeItem("token") }
                 })

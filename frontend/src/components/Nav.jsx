@@ -28,7 +28,7 @@ const navigate = useNavigate()
 const dispatch = useDispatch()
 
 const usuario = useSelector(store=> store.usuariosReducer.user)
-console.log(usuario)
+// console.log(usuario)
 
   async function desloguearse() {
     await dispatch(usuariosActions.desloguearse())
