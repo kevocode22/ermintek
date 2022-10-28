@@ -47,22 +47,7 @@ function CellPhones() {
                                         ></path>
                                     </svg>
                                 </button>
-                                <button className="text-white hover:text-blue-500">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 4v16m8-8H4"
-                                        />
-                                    </svg>
-                                </button>
+                              
                             </div>
 
                         </div>
@@ -118,7 +103,7 @@ function CellPhones() {
                             </div>
 
                             <button
-                                className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                                className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-orange-400 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
                             >
                                 Añadir al carrito
                                 <svg

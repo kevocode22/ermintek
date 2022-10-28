@@ -11,16 +11,15 @@ function AppleProducts() {
     return (
         <>
             <section className='flex justify-center flex-wrap p-10 w-full'>
-                <div className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white">
-                    <img src={imageAside} alt="Girl grabbing a phone" style={{ height: "20rem", width:"15rem", objectFit:"cover"}} />
-                    <h2 className="text-2xl font-bold">Celulares</h2>
-                    <p className="mt-4 max-w-[45ch] text-sm">
-                        Xiaomi, Asus, Nubia y más!
+                <div className="text-center lg:text-left rounded p-8 m-1 text-white" style={{backgroundImage:`url(${imageAside})`, backgroundSize:"cover", backgroundRepeat:"no-repeat"}}>
+                    {/* <img src={imageAside} alt="Girl grabbing a phone" style={{ height: "20rem", width:"15rem", objectFit:"cover"}} /> */}
+                    <h2 className="text-2xl font-bold relative top-80">Apple</h2>
+                    <p className="mt-4 max-w-[45ch] text-sm relative top-80">
+                        Macbook, Iphone, Applewatch
                     </p>
                 </div>
                 {macs.map((a, index) =>
                     <div key={index} className="w-60 bg-white shadow rounded m-1">
-
                         <div
                             className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
                             style={{ backgroundImage: `url(${a.image.img1})` }}
@@ -44,22 +43,6 @@ function AppleProducts() {
                                             strokeWidth="2"
                                             d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                                         ></path>
-                                    </svg>
-                                </button>
-                                <button className="text-white hover:text-blue-500">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-6 w-6"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M12 4v16m8-8H4"
-                                        />
                                     </svg>
                                 </button>
                             </div>
@@ -116,7 +99,7 @@ function AppleProducts() {
                             </div>
 
                             <button
-                                className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+                                className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-orange-400 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
                             >
                                 Añadir al carrito
                                 <svg

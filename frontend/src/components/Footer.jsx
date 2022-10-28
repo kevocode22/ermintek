@@ -1,12 +1,16 @@
 import React from 'react'
-import Logo from '../assets/Logos/logoDarkTransparent.png'
+import Logo from '../assets/Logos/logoLightTransparent.png'
+import {Link, useNavigate} from 'react-router-dom' 
 
 const Footer = () => {
+
+    const navigate = useNavigate()
+    
     return (
-        <footer className="bg-gray-900 text-white font-['Oswald']">
-            <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+        <footer className="bg-[#0000008e] text-white font-['Oswald']">
+            <div className="mx-auto w-full px-4 py-2 sm:px-6 lg:px-8">
                 <div className="flex justify-center text-white">
-                    <img src={Logo} className="h-28" alt="Ermintek Logo" />
+                   <Link to='/home'> <img src={Logo} className="h-28" alt="Ermintek Logo" /></Link>
                 </div>
 
                 <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-white">

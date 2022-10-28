@@ -13,9 +13,10 @@ import {useDispatch} from 'react-redux'
 import celularesActions from "./redux/actions/celularesActions";
 import SignIn from "./pages/SignIn";
 import { Toaster } from 'react-hot-toast';
-import usuariosActions from './redux/actions/usuariosActions'
+import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
 import macBooksActions from "./redux/actions/macBooksActions";
+
 
 function App() {
 
@@ -50,7 +51,7 @@ if (localStorage.getItem('token') !== null) {
               },
             }} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/"  element={<Home />} />
         <Route path="*" element={<Home />} />
         <Route path="/signin" element={<SignIn/>} />
         <Route path="/celulares" element={<Celulares />} />

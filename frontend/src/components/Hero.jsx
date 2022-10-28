@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/index.css'
 import bgXiaomi from '../assets/xiaomibg.png'
 import 'tw-elements';
+import 'animate.css';
 
 const Hero = () => {
 
@@ -29,7 +30,7 @@ const Hero = () => {
         <div className="carousel-item active relative float-left w-full">
           <img
             src={bgXiaomi}
-            className="block w-full object-contain"
+            className="block w-full object-contain animate__animated animate__zoomIn"
             alt="..."
             style={{ "height": "30rem", "width": "100%", paddingBottom: "5rem"}}
           />
@@ -41,7 +42,7 @@ const Hero = () => {
         <div className="carousel-item relative float-left w-full">
           <img
             src="https://www.sagernotebook.com/images/T/NP3643_index.png"
-            className="block w-full object-contain"
+            className="block w-full object-contain animate__animated animate__zoomIn"
             alt="..."
             style={{ "height": "30rem", "width": "100%" }}
           />

@@ -5,10 +5,11 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import '../styles/index.css'
 import Logo from '../assets/Logos/logoLightTransparent.png'
 import Avatar from '../assets/user.png'
-import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import { Link, Link as LinkRouter, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import usuariosActions from '../redux/actions/usuariosActions'
 import toast from 'react-hot-toast'
+import 'animate.css';
 
 
 const navigation = [
@@ -24,24 +25,24 @@ function classNames(...classes) {
 }
 
 const Nav = () => {
-const navigate = useNavigate()
-const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-const usuario = useSelector(store=> store.usuariosReducer.user)
-// console.log(usuario)
+  const usuario = useSelector(store => store.usuariosReducer.user)
+  // console.log(usuario)
 
   async function desloguearse() {
     await dispatch(usuariosActions.desloguearse())
     toast("Te esperamos pronto!")
     navigate("/home", { replace: true })
-        
+
   }
 
 
 
   return (
 
-    <Disclosure as="nav" className="bg-[#31565900] uppercase NavBar">
+    <Disclosure as="nav" className="bg-[#31565900] uppercase NavBar animate__animated animate__backInLeft">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-xs">
@@ -58,13 +59,15 @@ const usuario = useSelector(store=> store.usuariosReducer.user)
                 </Disclosure.Button>
               </div>
               <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
+
                 <div className="flex flex-shrink-0 items-center">
-                 
-                  <img
-                    className="h-20 w-20"
-                    src={Logo}
-                    alt="Ermintek"
-                  />
+                  <Link to='/home'>
+                    <img
+                      className="h-20 w-20"
+                      src={Logo}
+                      alt="Ermintek"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block items-center text-sm">
                   <div className="flex space-x-4 mt-3">
@@ -73,7 +76,7 @@ const usuario = useSelector(store=> store.usuariosReducer.user)
                         key={item.name}
                         to={item.to}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-[#e46904d3]  hover:text-white',
+                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-[#e46904d3] hover:text-white hover:animate-pulse',
                           'px-3 py-2 rounded-md text-lg'
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -88,9 +91,9 @@ const usuario = useSelector(store=> store.usuariosReducer.user)
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
-                 
+
                   <div className='flex px-4'>
-                                      <Menu.Button  as="div" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button as="div" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
@@ -141,8 +144,8 @@ const usuario = useSelector(store=> store.usuariosReducer.user)
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
-                <LinkRouter to={item.to} 
-                key={item.name}>
+                <LinkRouter to={item.to}
+                  key={item.name}>
                   <Disclosure.Button
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
