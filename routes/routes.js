@@ -3,7 +3,7 @@ const passport = require('../config/passport');
 const validator = require('../config/validator');
 
 const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = require('../controllers/cellControllers')
-const { signIn, signUp, verifyToken, verifyMail } = require('../controllers/userControllers')
+const { signIn, signUp, verifyToken, verifyMail } = require('../controllers/usuariosControllers')
 const { addProduct, modifyProduct, deleteProduct, getUserProducts } = require('../controllers/cartControllers')
 const { addMacBook, getMacBooks, getOneMacbook, modifyMacBook, removeMacBook } = require('../controllers/macBookControllers');
 const { addLaptop, getLaptops, getOneLaptop, modifyLaptop, removeLaptop } = require('../controllers/laptopControllers');

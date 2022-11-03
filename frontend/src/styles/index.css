@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body {
 
     background-image: url("../assets/ermintek.svg");
     background-attachment: fixed;
     background-size: cover;
     stroke: none;
-    background-color: rgba(0, 0, 0, 0.856)
+    background-color: #111328
 }
 
 /*ScrollBar*/
@@ -76,4 +78,9 @@ body::-webkit-scrollbar-thumb {
 
 .textCarousel {
     text-shadow: 2px 2px 2px black;
+}
+
+.cardHome:hover{
+    animation: animate__headShake;
+    animation-duration: 2ms;
 }

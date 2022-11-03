@@ -7,8 +7,7 @@ const crypto = require('crypto');
 
 const usuariosControllers = {
     signUp: async (req, res) => {
-        console.log(req.body);
-        const { nombre, apellido, email, contraseña, imagen, from } = req.body.userData; 
+        const { nombre, email, contraseña, from } = req.body.data; 
         try {
             const usuarioExiste = await Usuario.findOne({ email });  //si el usuario existe
             const verification = false;
@@ -20,7 +19,7 @@ const usuariosControllers = {
                         from: from,
                         message: `${email} ya existe en nuestra base de datos, por favor inicia sesión`,
                     });
-                } else { //sino significa que se registro por al menos 1 medio
+                } else { 
                     const passwordhashed = bcryptjs.hashSync(contraseña, 10);
                     usuarioExiste.contraseña.push(passwordhashed);
                     usuarioExiste.from.push(from);
@@ -36,10 +35,8 @@ const usuariosControllers = {
                 const passwordhashed = bcryptjs.hashSync(contraseña, 10);
                 const nuevoUsuario = await new Usuario({ //creare uno con los requerimientos del modelo users
                     nombre,
-                    apellido,
                     email,
                     contraseña: [passwordhashed],
-                    imagen,
                     from: [from],
                     uniqueString: uniqueString,
                     verification
@@ -91,10 +88,8 @@ const usuariosControllers = {
                         const usuarioData = {
                             id: usuarioExiste._id,
                             nombre: usuarioExiste.nombre,
-                            apellido: usuarioExiste.apellido,
                             email: usuarioExiste.email,
                             contraseña: usuarioExiste.contraseña,
-                            imagen: usuarioExiste.imagen,
                             from: usuarioExiste.from,
 							rol: usuarioExiste.rol,
                         };
@@ -121,10 +116,8 @@ const usuariosControllers = {
                         const usuarioData = {
                             id: usuarioExiste._id,
                             nombre: usuarioExiste.nombre,
-                            apellido: usuarioExiste.apellido,
                             email: usuarioExiste.email,
                             contraseña: usuarioExiste.contraseña,
-                            imagen: usuarioExiste.imagen,
                             from: usuarioExiste.from,
 							rol: usuarioExiste.rol,
                         };

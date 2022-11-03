@@ -4,11 +4,12 @@ let localUrl = 'http://localhost:4000'
 
 const usuariosActions = {
 
-    registrarse: (userData) => {
-        // console.log(userData)
+    registrarse: (data) => {
+        console.log(data)
         return async (dispatch, getState) => {
             try {
-                const res = await axios.post(localUrl + `/api/registrarse`,{userData})
+                const res = await axios.post(localUrl + `/api/registrarse`,{data})
+                console.log(res)
                 dispatch({
                     type: 'MESSAGE',
                     payload: {
@@ -16,10 +17,12 @@ const usuariosActions = {
                         message: res.data.message,
                         success: res.data.success
                     }
-                })
+                }
+                )
                 return res
+
             } catch (error) {
-                // console.log(error)
+                console.log(error)
             }
 
         }

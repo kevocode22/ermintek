@@ -1,6 +1,7 @@
 const joi = require('joi');
 
 const validator = (req, res, next) => {
+
     const schema = joi.object({
         nombre: joi.string()
             .min(3)
@@ -11,16 +12,6 @@ const validator = (req, res, next) => {
             .messages({
                 'string.min': 'nombre: min 3 characters',
                 'string.max': 'nombre: max 30 characters',
-            }),
-        apellido: joi.string()
-            .min(3)
-            .max(30)
-            .trim()
-            .pattern(new RegExp('[a-zA-Z]'))
-            .required()
-            .messages({
-                'string.min': 'apellido: min 3 characters',
-                'string.max': 'apellido: max 30 characters',
             }),
         email: joi.string()
             .email({ minDomainSegments: 2 })
@@ -39,12 +30,11 @@ const validator = (req, res, next) => {
             }),
         imagen: joi.string()
             .min(4)
-            .trim()
-            .required(),
+            .trim(),
         from: joi.string()
-
     })
     const validation = schema.validate(req.body.data, { abortEarly: false })
+    console.log(validation)
     if (validation.error) {
         return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation })
     }

@@ -7,12 +7,12 @@ function CellPhones() {
     const celulares = useSelector(store => store.celularesReducer.celulares)
     const precios = celulares.map(a=>a.price)
     const arrayPrecios = Object.entries(precios)
-
+console.log(arrayPrecios)
 
     return (
         <>
             <section className='flex justify-center flex-wrap p-10 w-full'>
-                <div className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white">
+                <div className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake" style={{animation:"animate__ animated animate__headShake"}}>
                     <img src={imageAside} alt="Girl grabbing a phone" style={{ height: "20rem", width:"15rem", objectFit:"cover"}} />
                     <h2 className="text-2xl font-bold">Celulares</h2>
                     <p className="mt-4 max-w-[45ch] text-sm">
@@ -56,8 +56,7 @@ function CellPhones() {
                                 {a.brand}
                             </p>
                             <h1 className="text-gray-800 text-center mt-1">{a.name}</h1>
-                            {arrayPrecios.forEach(([key, value]) =>
-                            <p className="text-center text-gray-800 mt-1 flex flex-col">{value}</p>)}
+                            <p className="text-center text-gray-800 mt-1 flex flex-col">{Object.values("$" + a.price)}</p>
                             <div className="inline-flex items-center mt-2">
                                 <button
                                     className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200"

@@ -42,12 +42,12 @@ if (localStorage.getItem('token') !== null) {
               className: '',
               style: {
                 boxShadow: "0px 3px 10px rgba(8, 8, 8, 0.413)",
-                background: '#333',
+                background: '#D36206',
                 padding: '1rem',
-                color: '#fff',
+                color: '#ffff',
                 textAlign: "center",
                 fontSize: "16px",
-                border: "5px solid #e46804",
+                border: "none"
               },
             }} />
       <Routes>
