@@ -1,17 +1,12 @@
 import Nav from "./components/Nav";
-import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import { Route, Routes } from 'react-router-dom'
-import Celulares from './pages/Celulares'
-import Computadoras from './pages/Computadoras'
-import Precios from './pages/Precios'
-import Apple from './pages/Apple'
+import {Celulares, Computadoras,Apple, Home, SignIn, Precios} from './pages/index'
 import ScrollToTop from "react-scroll-to-top";
 import 'tw-elements'
 import { useEffect } from "react";
 import {useDispatch} from 'react-redux'
 import celularesActions from "./redux/actions/celularesActions";
-import SignIn from "./pages/SignIn";
 import { Toaster } from 'react-hot-toast';
 import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
@@ -53,7 +48,7 @@ if (localStorage.getItem('token') !== null) {
       <Routes>
         <Route path="/"  element={<Home />} />
         <Route path="*" element={<Home />} />
-        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/account" element={<SignIn/>} />
         <Route path="/celulares" element={<Celulares />} />
         <Route path="/computadoras" element={<Computadoras />} />
         <Route path="/precios" element={<Precios />} />

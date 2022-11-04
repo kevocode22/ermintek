@@ -1,0 +1,11 @@
+export { default as GoogleSignUp } from "./GoogleSignUp";
+export { default as GoogleSignIn } from "./GoogleSignIn";
+export { default as Login } from "./Login";
+export { default as CellPhones } from "./CellPhones";
+export { default as Steps2 } from "./Steps2";
+export { default as ScrollHome } from "./ScrollHome";
+export { default as Hero } from "./Hero";
+export { default as Footer } from "./Footer";
+export { default as Computers } from "./Computers";
+export { default as Nav } from './Nav';
+export { default as AppleProducts} from './AppleProducts';

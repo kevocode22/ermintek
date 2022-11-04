@@ -2,57 +2,20 @@ import React, { useState } from "react";
 import "../styles/signIn.css";
 import Brand from "../assets/Logos/logoDarkTransparent.png";
 import bgrnd from "../assets/bg-orange.jpg";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import usuariosActions from "../redux/actions/usuariosActions";
-import toast from "react-hot-toast";
 import GoogleSignIn from "./GoogleSingIn";
 import GoogleSignUp from "./GoogleSignUp";
+import functionsContext from './Login/functions/Login'
 
 const LoginRegister = () => {
   const [addclass, setaddclass] = useState("");
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+const signUpSubmit = async function(){
+  return await functionsContext.signUpSubmit()
+}
 
-  const loginSubmit = async (event) => {
-    event.preventDefault();
-    const loginUser = {
-      email: event.target[0].value,
-      password: event.target[1].value,
-      from: "formulario-inicio",
-    };
-    let res = await dispatch(usuariosActions.inicioSesion(loginUser));
-    // console.log(res)
-    if (res.data.success) {
-      toast.success(res.data.message);
-      navigate("/");
-    } else {
-      toast.error(res.data.message);
-    }
-  };
+const loginSubmit = async function(){
+    return await functionsContext.loginSubmit()
+}
 
-  const signUpSubmit = async (event) => {
-    event.preventDefault();
-    const data = {
-      nombre: event.target[0].value,
-      email: event.target[1].value,
-      contraseña: event.target[2].value,
-      from: "formulario-registro",
-    };
-    let res = await dispatch(usuariosActions.registrarse(data));
-    let errorSignUp = res.data.message;
-    if (res.data.from === "validator") {
-      errorSignUp.forEach((e) => {
-        toast.error(e.message);
-      });
-    }
-    if (res.data.success) {
-      toast.success(res.data.message);
-      navigate("/signin");
-    } else {
-      toast.error(res.data.message);
-    }
-  };
 
   return (
     <div className="formContainer">
@@ -62,7 +25,6 @@ const LoginRegister = () => {
             <img src={Brand} alt="ermintek-logo" className="h-24" />
             <h1>Crear Cuenta</h1>
             <span className="flex items-center leading-normal border-0 rounded rounded-r-none">
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -119,7 +81,7 @@ const LoginRegister = () => {
             </button>
             <div className="flex justify-center mt-3">
               <p className="mr-2">o registrate con Google </p>
-              <GoogleSignUp />
+              {/* <GoogleSignUp /> */}
             </div>
           </form>
         </div>
@@ -166,7 +128,7 @@ const LoginRegister = () => {
             </button>
             <div className="flex justify-center mt-3">
               <p className="mr-2">o inicia sesión con Google:</p>
-              <GoogleSignIn />
+              {/* <GoogleSignIn /> */}
             </div>
           </form>
         </div>
