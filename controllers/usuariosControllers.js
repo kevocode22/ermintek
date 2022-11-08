@@ -17,7 +17,7 @@ const usuariosControllers = {
                     res.json({
                         success: false,
                         from: from,
-                        message: `${email} ya existe en nuestra base de datos, por favor inicia sesión`,
+                        message: `Este mail ya está registrado, por favor inicia sesión`,
                     });
                 } else { 
                     const passwordhashed = bcryptjs.hashSync(contraseña, 10);
@@ -64,7 +64,7 @@ const usuariosControllers = {
             res.json({
                 success: false,
                 from: from,
-                message: error,
+                message: "Algo no ha salido bien, por favor intenta nuevamente",
             });
             console.log(error)
         }

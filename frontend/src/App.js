@@ -11,7 +11,6 @@ import { Toaster } from 'react-hot-toast';
 import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
 import macBooksActions from "./redux/actions/macBooksActions";
-import { AuthProvider } from "./context/LoginContext";
 
 function App() {
 
@@ -48,9 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Home />} />
-        <AuthProvider>
         <Route path="/account" element={<SignIn />} />
-        </AuthProvider>
         <Route path="/celulares" element={<Celulares />} />
         <Route path="/computadoras" element={<Computadoras />} />
         <Route path="/precios" element={<Precios />} />

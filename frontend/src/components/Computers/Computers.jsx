@@ -1,43 +1,42 @@
-// import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-// import { Link as LinkRouter, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import imageAside from '../../assets/manWithPc.png'
-// import cartActions from '../redux/actions/cartActions'
-// import toast from 'react-hot-toast';
+import cartActions from '../../redux/actions/cartActions'
+import toast from 'react-hot-toast';
 
 const Computadoras = () => {
 
-    // const navigate = useNavigate()
-    // const [reload, setReload] = useState(false)
-    // const user = useSelector(store => store.usuariosReducer.user)
-    // const dispatch = useDispatch()
-    // const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+    const [reload, setReload] = useState(false)
+    const user = useSelector(store => store.usuariosReducer.user)
+    const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
     const computers = useSelector(store => store.laptopsReducer.laptops.laptops)
-    console.log(computers)
 
-    // useEffect(() => {
-    //     setLoading(true);
-    //     setTimeout(() => {
-    //         setLoading(false);
-    //     }, 1500);
-    // }, []);
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+    }, []);
 
-    // async function añadirProducto(event) {
-    //     if (user) {
-    //         const idProducto = event.target.id
-    //         let res = dispatch(cartActions.addProduct(idProducto))
-    //         console.log(res)
-    //         dispatch(cartActions.getUserProducts())
-    //         setReload(!reload)
-    //     } else {
-    //         toast.error("Primero Inicie Sesion")
-    //         setLoading(true);
-    //         setTimeout(() => {
-    //             setLoading(false);
-    //             navigate("/signin")
-    //         }, 1500)
-    //     }
-    // }
+    async function añadirProducto(event) {
+        if (user) {
+            const idProducto = event.target.id
+            let res = dispatch(cartActions.addProduct(idProducto))
+            console.log(res)
+            dispatch(cartActions.getUserProducts())
+            setReload(!reload)
+        } else {
+            toast.error("Primero Inicie Sesion")
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+                navigate("/signin")
+            }, 1500)
+        }
+    }
 
 
 

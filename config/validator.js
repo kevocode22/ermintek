@@ -1,39 +1,41 @@
-const Joi = require('joi');
+const joi = require('joi')
 
 const validator = (req, res, next) => {
-
-    const schema = Joi.object({
-        nombre: Joi.string()
+    //console.log("req.body es")
+    //console.log(req.body)
+    const schema = joi.object({
+        nombre: joi.string()
+            .max(20)
             .min(3)
-            .max(30)
             .trim()
             .pattern(new RegExp('[a-zA-Z]'))
             .required()
             .messages({
-                'string.min': 'nombre: min 3 characters',
-                'string.max': 'nombre: max 30 characters',
+                'string.min': 'name: min 3 characters',
+                'string.max': 'name: max 20 characters'
             }),
-        email: Joi.string()
-            .email({ minDomainSegments: 2 })
+        email: joi.string().email({ minDomainSegments: 2 })
             .required()
             .messages({
-                'string.email': '"email": incorrect form'
+                'string.email': '"mail": incorrect format'
             }),
-        password: Joi.string()
+        contraseña: joi.string()
             .min(8)
-            .max(40)
+            .max(30)
             .pattern(new RegExp('[a-zA-Z0-9]'))
             .required()
             .messages({
-                'string.min': '"contraseña": min 8 characters',
-                'string.max': '"contraseña": max 30 characters'
-            })
-
+                'string.min': '"password": min 8 characters',
+                'string.max': '"password": max 30 characters'
+            }),
+        from: joi.string()
     })
     const validation = schema.validate(req.body.data, { abortEarly: false })
+    console.log("VALIDATION", validation)
     if (validation.error) {
         return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation })
     }
     next()
 }
+
 module.exports = validator

@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const url = 'http://localhost:4000/'
-// const url=  'https://boxbonny-back.herokuapp.com/'
 
 const cartActions = {
 

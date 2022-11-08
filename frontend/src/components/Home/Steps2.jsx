@@ -11,7 +11,7 @@ const Steps2 = () => {
             <p className="text-sm font-bold uppercase">PASO 1</p>
     
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecapcap="round" strokeLinecapjoin="round" d="M9 5l7 7-7 7" />
+              <path strokelinecapcap="round" strokelinecapjoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
     
@@ -29,7 +29,7 @@ const Steps2 = () => {
             <p className="text-sm font-bold uppercase">PASO 2</p>
     
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecapcap="round" strokeLinecapjoin="round" d="M9 5l7 7-7 7" />
+              <path strokelinecapcap="round" strokelinecapjoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
     
@@ -48,7 +48,7 @@ const Steps2 = () => {
             <p className="text-sm font-bold uppercase">PASO 3</p>
     
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecapcap="round" strokeLinecapjoin="round" d="M9 5l7 7-7 7" />
+              <path strokelinecapcap="round" strokelinecapjoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
     
@@ -67,7 +67,7 @@ const Steps2 = () => {
             <p className="text-sm font-bold uppercase">PASO 4</p>
     
             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecapcap="round" strokeLinecapjoin="round" d="M9 5l7 7-7 7" />
+              <path strokelinecapcap="round" strokelinecapjoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
     
