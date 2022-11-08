@@ -1,5 +1,5 @@
 import React from 'react'
-import backGround from '../assets/BG-7.jpg'
+import backGround from '../../assets/BG-7.jpg'
 import 'animate.css';
 
 const Steps2 = () => {

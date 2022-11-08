@@ -1,27 +1,25 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import imageAside from '../assets/girlWithPhone.png'
+import imageAside from '../../assets/apple.png'
 
-function CellPhones() {
+function AppleProducts() {
 
-    const celulares = useSelector(store => store.celularesReducer.celulares)
-    const precios = celulares.map(a=>a.price)
-    const arrayPrecios = Object.entries(precios)
-console.log(arrayPrecios)
+    const macs = useSelector(store => store.macBooksReducer.macbooks.laptops)
+    console.log(macs)
+
 
     return (
         <>
             <section className='flex justify-center flex-wrap p-10 w-full'>
-                <div className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake" style={{animation:"animate__ animated animate__headShake"}}>
-                    <img src={imageAside} alt="Girl grabbing a phone" style={{ height: "20rem", width:"15rem", objectFit:"cover"}} />
-                    <h2 className="text-2xl font-bold">Celulares</h2>
-                    <p className="mt-4 max-w-[45ch] text-sm">
-                        Xiaomi, Asus, Nubia y más!
+                <div className="text-center lg:text-left rounded p-8 m-1 text-white" style={{backgroundImage:`url(${imageAside})`, backgroundSize:"cover", backgroundRepeat:"no-repeat"}}>
+                    {/* <img src={imageAside} alt="Girl grabbing a phone" style={{ height: "20rem", width:"15rem", objectFit:"cover"}} /> */}
+                    <h2 className="text-2xl font-bold relative top-80">Apple</h2>
+                    <p className="mt-4 max-w-[45ch] text-sm relative top-80">
+                        Macbook, Iphone, Applewatch
                     </p>
                 </div>
-                {celulares.map((a, index) =>
+                {macs.map((a, index) =>
                     <div key={index} className="w-60 bg-white shadow rounded m-1">
-
                         <div
                             className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
                             style={{ backgroundImage: `url(${a.image.img1})` }}
@@ -47,7 +45,6 @@ console.log(arrayPrecios)
                                         ></path>
                                     </svg>
                                 </button>
-                              
                             </div>
 
                         </div>
@@ -56,7 +53,7 @@ console.log(arrayPrecios)
                                 {a.brand}
                             </p>
                             <h1 className="text-gray-800 text-center mt-1">{a.name}</h1>
-                            <p className="text-center text-gray-800 mt-1 flex flex-col">{Object.values("$" + a.price)}</p>
+                            <p className="text-center text-gray-800 mt-1 flex flex-col"></p>
                             <div className="inline-flex items-center mt-2">
                                 <button
                                     className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200"
@@ -127,4 +124,4 @@ console.log(arrayPrecios)
     )
 }
 
-export default CellPhones
+export default AppleProducts

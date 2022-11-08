@@ -1,6 +1,7 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import Steps2 from '../components/Steps2'
+import Hero from '../components/Home/Hero'
+import Steps2 from '../components/Home/Steps2'
+
 
 const Home = () => {
 

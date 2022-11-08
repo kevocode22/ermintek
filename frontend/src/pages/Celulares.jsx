@@ -1,5 +1,5 @@
 import React from 'react'
-import CellPhones from '../components/CellPhones'
+import CellPhones from '../components/CellPhones/CellPhones'
 
 
 const Celulares = () => {

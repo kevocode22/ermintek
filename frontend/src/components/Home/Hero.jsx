@@ -1,6 +1,6 @@
 import React from 'react'
-import '../styles/index.css'
-import bgXiaomi from '../assets/xiaomibg.png'
+import '../../styles/index.css'
+import bgXiaomi from '../../assets/xiaomibg.png'
 import 'tw-elements';
 import 'animate.css';
 

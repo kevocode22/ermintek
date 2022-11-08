@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import "../styles/signIn.css";
-import Brand from "../assets/Logos/logoDarkTransparent.png";
-import bgrnd from "../assets/bg-orange.jpg";
+import "../../styles/signIn.css";
+import Brand from "../../assets/Logos/logoDarkTransparent.png";
+import bgrnd from "../../assets/bg-orange.jpg";
 import GoogleSignIn from "./GoogleSingIn";
 import GoogleSignUp from "./GoogleSignUp";
-import functionsContext from './Login/functions/Login'
+import LoginContext from "./functions/LoginContext";
+import { useContext } from "react";
 
 const LoginRegister = () => {
   const [addclass, setaddclass] = useState("");
-const signUpSubmit = async function(){
-  return await functionsContext.signUpSubmit()
-}
-
-const loginSubmit = async function(){
-    return await functionsContext.loginSubmit()
-}
+  const { signUpSubmit, loginSubmit} = useContext(LoginContext) 
+  
+  console.log(signUpSubmit)
 
 
   return (
@@ -81,7 +78,7 @@ const loginSubmit = async function(){
             </button>
             <div className="flex justify-center mt-3">
               <p className="mr-2">o registrate con Google </p>
-              {/* <GoogleSignUp /> */}
+              <GoogleSignUp />
             </div>
           </form>
         </div>
@@ -128,7 +125,7 @@ const loginSubmit = async function(){
             </button>
             <div className="flex justify-center mt-3">
               <p className="mr-2">o inicia sesión con Google:</p>
-              {/* <GoogleSignIn /> */}
+              <GoogleSignIn />
             </div>
           </form>
         </div>

@@ -1,10 +1,9 @@
 import React from 'react'
-import Logo from '../assets/Logos/logoLightTransparent.png'
-import {Link, useNavigate} from 'react-router-dom' 
+import Logo from '../../assets/Logos/logoLightTransparent.png'
+import {Link} from 'react-router-dom' 
 
 const Footer = () => {
 
-    const navigate = useNavigate()
     
     return (
         <footer className="bg-[#0000008e] text-white font-['Oswald']">

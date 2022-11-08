@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { configureStore as createStore } from '@reduxjs/toolkit';
 import mainReducers from './redux/reducers/mainReducers';
+import { LoginContextProvider } from './components/AccountUser/functions/LoginContext'
 
 const reduxStore = createStore({ reducer: mainReducers });
 
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <Provider store={reduxStore}>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+        <BrowserRouter>
+            <LoginContextProvider>
+                <App />
+            </LoginContextProvider>
+        </BrowserRouter>
     </Provider>
 );
 

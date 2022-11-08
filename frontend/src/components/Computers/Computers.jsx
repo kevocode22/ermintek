@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 // import { Link as LinkRouter, useNavigate } from 'react-router-dom'
-import imageAside from '../assets/manWithPc.png'
+import imageAside from '../../assets/manWithPc.png'
 // import cartActions from '../redux/actions/cartActions'
 // import toast from 'react-hot-toast';
 
