@@ -24,16 +24,18 @@ const Computadoras = () => {
     async function añadirProducto(event) {
         if (user) {
             const idProducto = event.target.id
+            console.log(idProducto)
             let res = dispatch(cartActions.addProduct(idProducto))
             console.log(res)
-            dispatch(cartActions.getUserProducts())
+           let userProd = dispatch(cartActions.getUserProducts())
+           console.log(userProd)
             setReload(!reload)
         } else {
             toast.error("Primero Inicie Sesion")
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
-                navigate("/signin")
+                navigate("/account")
             }, 1500)
         }
     }
@@ -134,7 +136,7 @@ const Computadoras = () => {
 
                         <button
                             className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-orange-400 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
-                        >
+                         onClick={añadirProducto}>
                             Añadir al carrito
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
