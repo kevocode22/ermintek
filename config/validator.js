@@ -19,7 +19,6 @@ const validator = (req, res, next) => {
             .max(30)
             .trim()
             .pattern(new RegExp('[a-zA-Z]'))
-            .required()
             .messages({
                 'string.min': 'apellido: min 3 characters',
                 'string.max': 'apellido: max 30 characters',
@@ -40,8 +39,7 @@ const validator = (req, res, next) => {
             }),
             imagen: joi.string()
             .min(4)
-            .trim()
-            .required(),
+            .trim(),
         from: joi.string()
     })
     const validation = schema.validate(req.body.data, { abortEarly: false })
