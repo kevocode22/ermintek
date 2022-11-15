@@ -2,7 +2,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import '../../styles/index.css'
+import './nav.css'
 import Logo from '../../assets/Logos/logoLightTransparent.png'
 import Avatar from '../../assets/user.png'
 import { Link, useNavigate, Link as LinkRouter} from 'react-router-dom'
@@ -30,7 +30,7 @@ const Nav = () => {
   const dispatch = useDispatch()
   const [reload, setReload] = useState(false)
 
-
+      
   const usuario = useSelector(store => store.usuariosReducer.user)
   console.log(usuario)
  
