@@ -1,7 +1,7 @@
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
 import { Route, Routes } from 'react-router-dom'
-import { Celulares, Computadoras, Apple, Home, SignIn, Precios } from './pages/index'
+import { Celulares, Computadoras, Apple, Home, SignIn, Precios} from './pages/index'
 import ScrollToTop from "react-scroll-to-top";
 import 'tw-elements'
 import { useEffect } from "react";
@@ -11,6 +11,7 @@ import { Toaster } from 'react-hot-toast';
 import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
 import macBooksActions from "./redux/actions/macBooksActions";
+import { DetailsCellPhone } from "./components/CellPhones/DetailsCellPhone";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/computadoras" element={<Computadoras />} />
         <Route path="/precios" element={<Precios />} />
         <Route path="/apple" element={<Apple />} />
+        <Route path="/caracteristicas" element={<DetailsCellPhone/>} />
       </Routes>
       <Footer />
       <ScrollToTop

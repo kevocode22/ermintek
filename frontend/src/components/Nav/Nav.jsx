@@ -1,5 +1,4 @@
-import React from 'react'
-import { Fragment } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './nav.css'
@@ -10,15 +9,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import usuariosActions from '../../redux/actions/usuariosActions'
 import toast from 'react-hot-toast'
 import 'animate.css';
-import { useState } from 'react'
-
+import axios from 'axios'
 
 const navigation = [
   { name: 'Inicio', to: '/', current: false },
   { name: 'Celulares', to: '/celulares', current: false },
   { name: 'Computadoras', to: '/computadoras', current: false },
   { name: 'Apple', to: '/apple', current: false },
-  { name: 'Precios', to: '/precios', current: false },
 ]
 
 function classNames(...classes) {
@@ -29,11 +26,21 @@ const Nav = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [reload, setReload] = useState(false)
-
-      
+  const [dolar, setDolar] = useState([])
   const usuario = useSelector(store => store.usuariosReducer.user)
-  console.log(usuario)
- 
+  // console.log(usuario)
+
+ useEffect(()=>{
+axios.get('https://api.bluelytics.com.ar/v2/latest')
+.then(res => {
+  const apiResponse = res.data.blue;
+  setDolar(apiResponse)
+}).catch(error=>{
+  console.error(error)
+})
+ },[])
+// console.log(dolar)
+
 
   async function desloguearse() {
     if (usuario){
@@ -45,11 +52,9 @@ const Nav = () => {
     
   }
 
-
-
   return (
 
-    <Disclosure as="nav" className="bg-[#31565900] uppercase NavBar animate__animated animate__backInLeft">
+    <Disclosure as="nav" className="bg-black bg-opacity-50 uppercase NavBar animate__animated animate__backInLeft h-20">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-xs">
@@ -95,6 +100,7 @@ const Nav = () => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className='text-white text-xl'>Dolar: ${dolar.value_sell}</div>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

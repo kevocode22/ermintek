@@ -1,9 +1,5 @@
 import { InfinitySpin } from 'react-loader-spinner'
 
-
-
-import React from 'react'
-
 const LoadingHome = () => {
   return (
     <InfinitySpin 

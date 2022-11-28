@@ -9,4 +9,5 @@ export { default as Footer } from "./Footer/Footer";
 export { default as Computers } from "./Computers/Computers";
 export { default as Nav } from "./Nav/Nav";
 export { default as AppleProducts } from "./Apple/AppleProducts";
+export { default as DetailsCellPhone } from "./CellPhones/DetailsCellPhone"
 
