@@ -1,10 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import imageAside from "../../assets/girlWithPhone.png";
-import { Link as LinkRouter } from "react-router-dom";
+import { Link as LinkRouter, useParams} from "react-router-dom";
+import productActions from '../../redux/actions/celularesActions'
 
 function CellPhones() {
   const celulares = useSelector((store) => store.celularesReducer.celulares);
+  const {id} = useParams()
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(productActions.getOneCelular(id))
+    // eslint-disable-next-line
+  },[])
+
   const filterPrecio = celulares.map((p) => p.price);
   console.log(filterPrecio.map((a) => a));
   const precios = Object.keys(filterPrecio);
@@ -101,7 +110,7 @@ function CellPhones() {
                   </svg>
                 </button>
               </div>
-              <LinkRouter to={`/celulares/caracteristicas/${a._id}`+ console.log(a._id)}>
+              <LinkRouter to={`/celulares/caracteristicas/${a._id}`}>
                 <button className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-orange-400 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">
                   Ver más
                 </button>

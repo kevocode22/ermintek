@@ -20,7 +20,7 @@ const cellControllers = {
 		let cellPhone
 		let error = null
 		try {
-			cellPhone = await Celular.findOne({_id: id})
+			cellPhone = await Celular.findOne({_id:id})
 		}catch (err) {
 			error = err
 			console.error(error)
@@ -30,7 +30,6 @@ const cellControllers = {
 			success: error ? false : true,
 			error: error
 		})
-
 	},
 	
 	addCellPhone: async(req,res)=>{
@@ -53,7 +52,6 @@ const cellControllers = {
 			success: error ? false : true,
 			error: error
 		})
-
 	},
 
 	modifyCellPhone: async(req,res)=>{
