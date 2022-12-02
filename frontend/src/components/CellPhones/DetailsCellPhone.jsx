@@ -1,20 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import celularesActions from "../../redux/actions/celularesActions";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const DetailsCellPhone = () => {
 const navigate = useNavigate()
-const dispatch = useDispatch()
-const {id} = useParams()
-
- const celularId = useSelector((store) => store.celularesReducer.oneCelular)
- useEffect(()=>{
- let res = dispatch(celularesActions.getOneCelular(id))
- console.log(res)
-  //eslint-disable-next-line
- },[])
-
+ 
+ const celularId = useSelector(store => store.celularesReducer.oneCelular)
 console.log(celularId)
 
   return (
@@ -59,10 +49,10 @@ console.log(celularId)
               <div className="mt-8 flex justify-between">
                 <div className="max-w-[35ch]">
                   <h1 className="text-2xl font-bold text-white">
-                    {celularId.name}
+                    {celularId?.name}
                   </h1>
 
-                  <p className="mt-0.5 text-sm text-gray-400">{celularId.brand}</p>
+                  <p className="mt-0.5 text-sm text-gray-400">{celularId?.brand}</p>
 
                 </div>
 
@@ -74,7 +64,7 @@ console.log(celularId)
                   <div>
                     <div className="prose max-w-none group-open:hidden text-white">
                       <p>
-                        {celularId.description}
+                        {celularId?.description}
                       </p>
                     </div>
 

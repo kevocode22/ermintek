@@ -1,13 +1,21 @@
 import { useSelector } from "react-redux";
 import imageAside from "../../assets/girlWithPhone.png";
-import { Link as LinkRouter } from "react-router-dom";
-
+import { Link as LinkRouter, useParams } from "react-router-dom";
+import {useDispatch} from 'react-redux'
+import celularesActions from "../../redux/actions/celularesActions";
+import {useEffect} from 'react'
 function CellPhones() {
 
+  const id = useParams()
+const dispatch = useDispatch()
 const celulares = useSelector(store => store.celularesReducer.celulares)
+console.log(celulares)
+useEffect(()=>{
+  dispatch(celularesActions.getOneCelular(id))
+   //eslint-disable-next-line
+  },[])
   const filterPrecio = celulares.map((p) => p.price);
   const precios = Object.keys(filterPrecio);
-
   return (
     <>
    
@@ -32,7 +40,7 @@ const celulares = useSelector(store => store.celularesReducer.celulares)
           <div key={index} className="w-60 bg-white shadow rounded m-1">
             <div
               className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
-              style={{ backgroundImage: `url(${cellphone?.image.img1})` }}
+              style={{ backgroundImage: `url(${cellphone.image.img1})` }}
             >
               <div className="flex justify-between">
                 <button

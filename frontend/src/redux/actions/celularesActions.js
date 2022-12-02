@@ -13,8 +13,9 @@ const celularesActions = {
 
     getOneCelular: (id) => {
         return async (dispatch, getState) => {
+            console.log(id)
             const res = await axios.get(localUrl + `api/cellphones/${id}`);
-            console.log(res)
+            console.log(res.data.response)
             dispatch({ type: "GETONECEL", payload: res.data.response });
          };
       

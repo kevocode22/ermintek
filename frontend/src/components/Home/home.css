@@ -3,8 +3,7 @@
     font-size: 1rem;
 }
 .videobanner {
-  display: flex !important;
-  justify-content: start !important;
+  display: flex;
   color: white;
   height: 100vh;
   width: 100%;
@@ -32,8 +31,8 @@
   border-radius: 0px 10px 10px 0px;
   box-shadow: 0.5rem 0.5rem 1.8rem #ff9504;
   color: white;
-  animation: backInLeft; /* referring directly to the animation's @keyframe declaration */
-  animation-duration: 2s; /* don't forget to set a duration! */
+  animation: backInLeft; 
+  animation-duration: 2s
 }
 
 
