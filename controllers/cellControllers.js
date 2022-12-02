@@ -20,7 +20,7 @@ const cellControllers = {
 		let cellPhone
 		let error = null
 		try {
-			cellPhone = await Celular.findOne({_id:id})
+			cellPhone = await Celular.findOne({id:id})
 		}catch (err) {
 			error = err
 			console.error(error)

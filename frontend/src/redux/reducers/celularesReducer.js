@@ -1,6 +1,6 @@
 const initialState = {
     celulares: [],
-    getOneCel:[]
+    oneCelular:[]
 }
 
 const celularesReducer = (state = initialState, action) => {
@@ -14,10 +14,10 @@ const celularesReducer = (state = initialState, action) => {
                 celulares: action.payload,
             }
 
-        case "GET_ONE_CEL":
+        case "GETONECEL":
             return{
                 ...state,
-                getOneCel: action.payload
+                oneCelular: action.payload
             }
 
             default: 

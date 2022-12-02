@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 const localUrl = 'http://localhost:4000/'
 
 const celularesActions = {
@@ -14,11 +13,11 @@ const celularesActions = {
 
     getOneCelular: (id) => {
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/cellphones/${id}`)
-            console.log(id)
+            const res = await axios.get(localUrl + `api/cellphones/${id}`);
             console.log(res)
-            dispatch({ type: "GET_ONE_CEL", payload: res.data.response })
-        }
+            dispatch({ type: "GETONECEL", payload: res.data.response });
+         };
+      
     },
 
 }

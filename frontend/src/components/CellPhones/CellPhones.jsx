@@ -1,31 +1,22 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import imageAside from "../../assets/girlWithPhone.png";
-import { Link as LinkRouter, useParams} from "react-router-dom";
-import productActions from '../../redux/actions/celularesActions'
+import { Link as LinkRouter } from "react-router-dom";
 
 function CellPhones() {
-  const celulares = useSelector((store) => store.celularesReducer.celulares);
-  const {id} = useParams()
-  const dispatch = useDispatch()
 
-  useEffect(()=>{
-    dispatch(productActions.getOneCelular(id))
-    // eslint-disable-next-line
-  },[])
-
+const celulares = useSelector(store => store.celularesReducer.celulares)
   const filterPrecio = celulares.map((p) => p.price);
-  console.log(filterPrecio.map((a) => a));
   const precios = Object.keys(filterPrecio);
-  console.log(precios);
 
   return (
     <>
-      <section className="flex justify-center flex-wrap p-10 w-full">
+   
+      <section className="flex justify-center flex-wrap p-10 w-full" >
         <div
           className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake"
           style={{ animation: "animate__ animated animate__headShake" }}
         >
+          
           <img
             src={imageAside}
             alt="Girl grabbing a phone"
@@ -36,11 +27,12 @@ function CellPhones() {
             Xiaomi, Asus, Nubia y más!
           </p>
         </div>
-        {celulares.map((a, index) => (
+       
+        {celulares.map((cellphone, index)=> 
           <div key={index} className="w-60 bg-white shadow rounded m-1">
             <div
               className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
-              style={{ backgroundImage: `url(${a.image.img1})` }}
+              style={{ backgroundImage: `url(${cellphone?.image.img1})` }}
             >
               <div className="flex justify-between">
                 <button
@@ -67,9 +59,9 @@ function CellPhones() {
             </div>
             <div className="p-4 flex flex-col items-center">
               <p className="text-gray-400 font-light text-xs text-center">
-                {a.brand}
+                {cellphone?.brand}
               </p>
-              <h1 className="text-gray-800 text-center mt-1">{a.name}</h1>
+              <h1 className="text-gray-800 text-center mt-1">{cellphone?.name}</h1>
               <p className="text-center text-gray-800 mt-1 flex flex-col flex-wrap">
                 {precios}
               </p>
@@ -110,14 +102,14 @@ function CellPhones() {
                   </svg>
                 </button>
               </div>
-              <LinkRouter to={`/celulares/caracteristicas/${a._id}`}>
+              <LinkRouter to={`caracteristicas/${cellphone?._id}`}>
                 <button className="py-2 px-4 bg-[#e46804] text-white rounded hover:bg-orange-400 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center">
                   Ver más
                 </button>
               </LinkRouter>
             </div>
-          </div>
-        ))}
+          </div>)}
+        )
       </section>
     </>
   );

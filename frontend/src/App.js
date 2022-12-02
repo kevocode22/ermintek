@@ -12,16 +12,13 @@ import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
 import macBooksActions from "./redux/actions/macBooksActions";
 import  DetailsCellPhone  from "./components/CellPhones/DetailsCellPhone";
-import {useParams} from 'react-router-dom'
 
 function App() {
-  const {id} = useParams()
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(celularesActions.getCelulares())
-    dispatch(celularesActions.getOneCelular(id))
     dispatch(laptopsActions.getLaptops())
     dispatch(macBooksActions.getmacBooks())
     if (localStorage.getItem('token') !== null) {
