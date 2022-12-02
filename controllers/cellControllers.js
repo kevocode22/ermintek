@@ -17,10 +17,11 @@ const cellControllers = {
 
 	getOneCellPhone: async(req,res)=>{
 		const id = req.params.id
+		console.log("REQ", id)
 		let cellPhone
 		let error = null
 		try {
-			cellPhone = await Celular.findOne({id:id})
+			cellPhone = await Celular.findOne({_id:id})
 		}catch (err) {
 			error = err
 			console.error(error)

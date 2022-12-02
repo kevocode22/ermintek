@@ -2,7 +2,10 @@ const Router = require('express').Router();
 const passport = require('../config/passport');
 const validator = require('../config/validator');
 
-const { getCellPhones, addCellPhone, getOneCellPhone, modifyCellPhone, removeCellPhone } = require('../controllers/cellControllers')
+const cellController = require('../controllers/cellControllers')
+const {getOneCellPhone} = cellController
+
+const { getCellPhones, addCellPhone, modifyCellPhone, removeCellPhone } = require('../controllers/cellControllers')
 const { signIn, signUp, verifyToken, verifyMail } = require('../controllers/usuariosControllers')
 const { addProduct, modifyProduct, deleteProduct, getUserProducts } = require('../controllers/cartControllers')
 const { addMacBook, getMacBooks, getOneMacbook, modifyMacBook, removeMacBook } = require('../controllers/macBookControllers');

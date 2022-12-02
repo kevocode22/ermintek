@@ -9,14 +9,15 @@ const celularSchema = new mongoose.Schema({
         img2: { type: String }
     },
     features: { type: String },
-    price: {
-        "4_64": { type: Number },
-        "4_128": { type: Number },
-        "6_128": { type: Number },
-        "8_128": { type: Number },
-        "8_256": { type: Number },
-        "12_256": { type: Number },
-    },
+
+    details: [
+        {
+            "Ram": Number,
+            "Storage": Number,
+            "Price": Number
+        },
+
+    ],
     review: { type: String },
     tags: { type: String }
 })

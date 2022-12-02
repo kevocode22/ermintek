@@ -1,30 +1,18 @@
 import { useSelector } from "react-redux";
 import imageAside from "../../assets/girlWithPhone.png";
-import { Link as LinkRouter, useParams } from "react-router-dom";
-import {useDispatch} from 'react-redux'
-import celularesActions from "../../redux/actions/celularesActions";
-import {useEffect} from 'react'
-function CellPhones() {
+import { Link as LinkRouter } from "react-router-dom";
 
-  const id = useParams()
-const dispatch = useDispatch()
-const celulares = useSelector(store => store.celularesReducer.celulares)
-console.log(celulares)
-useEffect(()=>{
-  dispatch(celularesActions.getOneCelular(id))
-   //eslint-disable-next-line
-  },[])
-  const filterPrecio = celulares.map((p) => p.price);
-  const precios = Object.keys(filterPrecio);
+function CellPhones() {
+  const celulares = useSelector((store) => store.celularesReducer.celulares);
+  
+
   return (
     <>
-   
-      <section className="flex justify-center flex-wrap p-10 w-full" >
+      <section className="flex justify-center flex-wrap p-10 w-full">
         <div
           className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake"
           style={{ animation: "animate__ animated animate__headShake" }}
         >
-          
           <img
             src={imageAside}
             alt="Girl grabbing a phone"
@@ -35,8 +23,7 @@ useEffect(()=>{
             Xiaomi, Asus, Nubia y más!
           </p>
         </div>
-       
-        {celulares.map((cellphone, index)=> 
+        {celulares.map((cellphone, index) => (
           <div key={index} className="w-60 bg-white shadow rounded m-1">
             <div
               className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
@@ -69,9 +56,10 @@ useEffect(()=>{
               <p className="text-gray-400 font-light text-xs text-center">
                 {cellphone?.brand}
               </p>
-              <h1 className="text-gray-800 text-center mt-1">{cellphone?.name}</h1>
+              <h1 className="text-gray-800 text-center mt-1">
+                {cellphone?.name}
+              </h1>
               <p className="text-center text-gray-800 mt-1 flex flex-col flex-wrap">
-                {precios}
               </p>
               <div className="inline-flex items-center mt-2">
                 <button className="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
@@ -116,7 +104,8 @@ useEffect(()=>{
                 </button>
               </LinkRouter>
             </div>
-          </div>)}
+          </div>
+        ))}
         )
       </section>
     </>
