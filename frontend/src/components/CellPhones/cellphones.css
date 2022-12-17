@@ -1,11 +1,12 @@
-@layer components {
-    .no-spinner {
-      -moz-appearance: textfield;
-    }
 
-    .no-spinner::-webkit-outer-spin-button,
-    .no-spinner::-webkit-inner-spin-button {
-      margin: 0;
-      -webkit-appearance: none;
-    }
-  }
+
+p, ul{
+  font-family: 'Lato', sans-serif;
+  line-height: 1.2;
+  font-weight: 200;
+  font-size: 1rem !important;
+}
+
+h1, h3{
+  letter-spacing: 0.1rem;
+}

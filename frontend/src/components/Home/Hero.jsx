@@ -9,7 +9,7 @@ const Hero = () => {
   return (
 
     <div id="carouselExampleCaptions" className="carousel slide relative " data-bs-ride="carousel">
-      <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+      <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-2">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
@@ -32,7 +32,7 @@ const Hero = () => {
             src={bgXiaomi}
             className="block w-full object-contain animate__animated animate__zoomIn"
             alt="..."
-            style={{ "height": "30rem", "width": "100%", paddingBottom: "5rem"}}
+            style={{ "height": "33rem", "width": "100%", paddingBottom: "5rem"}}
           />
           <div className="carousel-caption hidden md:block absolute text-center">
             <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>TIENDA DE CELULARES E INFORMÁTICA</h2>
@@ -44,7 +44,7 @@ const Hero = () => {
             src="https://www.sagernotebook.com/images/T/NP3643_index.png"
             className="block w-full object-contain animate__animated animate__zoomIn"
             alt="..."
-            style={{ "height": "30rem", "width": "100%" }}
+            style={{ "height": "33rem", "width": "100%" }}
           />
           <div className="carousel-caption hidden md:block absolute text-center">
             <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>NOTEBOOKS Y PC DE ESCRITORIO</h2>

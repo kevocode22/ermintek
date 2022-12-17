@@ -1,25 +1,35 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import celularesActions from "../../redux/actions/celularesActions";
+import axios from "axios";
+import '../CellPhones/cellphones.css'
+import { NumericFormat } from 'react-number-format';
+
 
 const DetailsCellPhone = () => {
-  const [celular, setCelular] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [dolar, setDolar] = useState([]);
   const { id } = useParams();
 
   const detailsCell = useSelector((store) => store.celularesReducer.oneCelular);
-  const { image, price, ...props } = detailsCell;
+  const { image, details, ...props } = detailsCell;
+
 
   useEffect(() => {
     dispatch(celularesActions.getOneCelular(id));
-    setCelular(Object.values(price));
+    axios
+      .get("https://api.bluelytics.com.ar/v2/latest")
+      .then((res) => {
+        const apiResponse = res.data.blue;
+        setDolar(apiResponse.value_sell);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     //eslint-disable-next-line
   }, []);
-
-  console.log(celular);
 
   return (
     <>
@@ -28,7 +38,6 @@ const DetailsCellPhone = () => {
           onClick={() => navigate("/celulares")}
           className="bg-orange-500 rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
         >
-          {" "}
           {`< Volver`}
         </button>
         <div className="relative mx-auto max-w-screen-xl px-4 py-8">
@@ -49,13 +58,7 @@ const DetailsCellPhone = () => {
 
                 <img
                   alt="Foto terciaria celular"
-                  src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  className="aspect-square w-full rounded-xl object-cover"
-                />
-
-                <img
-                  alt="Les Paul"
-                  src=""
+                  src={image?.img3}
                   className="aspect-square w-full rounded-xl object-cover"
                 />
               </div>
@@ -67,6 +70,7 @@ const DetailsCellPhone = () => {
                   <h1 className="text-2xl font-bold text-white">
                     {props?.name}
                   </h1>
+                  <br />
 
                   <p className="mt-0.5 text-sm text-gray-400">
                     {"props"?.description}
@@ -77,22 +81,37 @@ const DetailsCellPhone = () => {
                   {props?.brand}
                 </p>
               </div>
-
               <div>
                 <div className="prose max-w-none text-white">
-                  <p>{props.description}</p>
-
-                  <select className="flex columns-1 text-black">
-                    {celular?.map(
-                      (a) =>
-                        a !== null && (
-                          <option value="" className="text-black">
-                            USD {a}
-                          </option>
-                        )
-                    )}
-                  </select>
+                  <p>{props?.description}</p>
+                  <div>
+                    <h3 className="text-white">Características</h3>
+                  {props.features?.map((f) => (
+                    <p className="text-white">
+                      Pantalla:{f.Pantalla} <br />
+                      Procesador:{f.Procesador} <br />
+                      RAM:{f.RAM} <br />
+                      Almacenamiento:{f.Almacenamiento} <br />
+                      Expansión:{f.Expansion} <br />
+                      Cámara:{f.Cámara} <br />
+                      Batería:{f.Batería} <br />
+                      OS:{f.OS} <br />
+                    </p>
+                  ))}
                 </div>
+                  <h3 className="text-white">Precios</h3>
+                  {details?.map((d, index) => (
+                  <ol key={index} className="flex justify-start flex-col text-white bg-black rounded-md">
+                      <ul>
+                      -Versión {d.Ram}GB RAM / {d.Storage}GB ALMACENAMIENTO: <br />
+                      <NumericFormat value={d.Price * 0.25 + d.Price} displayType={'text'} thousandSeparator={true} prefix={' USD '} className='text-xl font-semibold'/>
+{" |"}
+                      <NumericFormat value={(d.Price * 0.25 + d.Price) * dolar} displayType={'text'} thousandSeparator={true} prefix={' ARS '} className='text-xl font-semibold' />
+                      </ul>
+              
+                  </ol>      ))}
+                </div>
+           
               </div>
             </div>
           </div>

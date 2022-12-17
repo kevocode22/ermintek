@@ -17,7 +17,6 @@ const cellControllers = {
 
 	getOneCellPhone: async(req,res)=>{
 		const id = req.params.id
-		console.log("REQ", id)
 		let cellPhone
 		let error = null
 		try {
@@ -34,7 +33,7 @@ const cellControllers = {
 	},
 	
 	addCellPhone: async(req,res)=>{
-		const {name,brand, description, features, price, image, tags} = req.body
+		const {name,brand, description, features, details, image, tags} = req.body
 		let cellPhone
 		let error = null
 		try{
@@ -43,7 +42,7 @@ const cellControllers = {
 				brand: brand,
 				description:description,
 				features:features,
-				price: price,
+				details: details,
 				image:image,
 				tags: tags
 			}).save()
