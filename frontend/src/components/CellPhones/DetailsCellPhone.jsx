@@ -3,19 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import celularesActions from "../../redux/actions/celularesActions";
 import axios from "axios";
-import '../CellPhones/cellphones.css'
-import { NumericFormat } from 'react-number-format';
-
+import "../CellPhones/cellphones.css";
+import { NumericFormat } from "react-number-format";
 
 const DetailsCellPhone = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dolar, setDolar] = useState([]);
   const { id } = useParams();
-
   const detailsCell = useSelector((store) => store.celularesReducer.oneCelular);
   const { image, details, ...props } = detailsCell;
-
 
   useEffect(() => {
     dispatch(celularesActions.getOneCelular(id));
@@ -86,32 +83,47 @@ const DetailsCellPhone = () => {
                   <p>{props?.description}</p>
                   <div>
                     <h3 className="text-white">Características</h3>
-                  {props.features?.map((f) => (
-                    <p className="text-white">
-                      Pantalla:{f.Pantalla} <br />
-                      Procesador:{f.Procesador} <br />
-                      RAM:{f.RAM} <br />
-                      Almacenamiento:{f.Almacenamiento} <br />
-                      Expansión:{f.Expansion} <br />
-                      Cámara:{f.Cámara} <br />
-                      Batería:{f.Batería} <br />
-                      OS:{f.OS} <br />
-                    </p>
-                  ))}
-                </div>
+                    {props.features?.map((f) => (
+                      <p className="text-white">
+                        Pantalla:{f.Pantalla} <br />
+                        Procesador:{f.Procesador} <br />
+                        RAM:{f.RAM} <br />
+                        Almacenamiento:{f.Almacenamiento} <br />
+                        Expansión:{f.Expansion} <br />
+                        Cámara:{f.Cámara} <br />
+                        Batería:{f.Batería} <br />
+                        OS:{f.OS} <br />
+                      </p>
+                    ))}
+                  </div>
                   <h3 className="text-white">Precios</h3>
                   {details?.map((d, index) => (
-                  <ol key={index} className="flex justify-start flex-col text-white bg-black rounded-md">
+                    <ol
+                      key={index}
+                      className="flex justify-start flex-col text-white bg-black rounded-md"
+                    >
                       <ul>
-                      -Versión {d.Ram}GB RAM / {d.Storage}GB ALMACENAMIENTO: <br />
-                      <NumericFormat value={d.Price * 0.25 + d.Price} displayType={'text'} thousandSeparator={true} prefix={' USD '} className='text-xl font-semibold'/>
-{" |"}
-                      <NumericFormat value={(d.Price * 0.25 + d.Price) * dolar} displayType={'text'} thousandSeparator={true} prefix={' ARS '} className='text-xl font-semibold' />
+                        -Versión {d.Ram}GB RAM / {d.Storage}GB ALMACENAMIENTO:{" "}
+                        <br />
+                        <NumericFormat
+                          value={d.Price * 0.25 + d.Price}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          prefix={" USD "}
+                          className="text-xl font-semibold"
+                        />
+                        {" |"}
+                        <NumericFormat
+                          value={(d.Price * 0.25 + d.Price) * dolar}
+                          displayType={"text"}
+                          thousandSeparator={true}
+                          prefix={" ARS "}
+                          className="text-xl font-semibold"
+                        />
                       </ul>
-              
-                  </ol>      ))}
+                    </ol>
+                  ))}
                 </div>
-           
               </div>
             </div>
           </div>
