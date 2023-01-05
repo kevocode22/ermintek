@@ -105,7 +105,7 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
 
-                  <div className='flex px-4'>
+                  {/* <div className='flex px-4'>
                     <Menu.Button as="div" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
@@ -114,7 +114,7 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
                         alt="avatar"
                       />
                     </Menu.Button>
-                  </div>
+                  </div> */}
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"

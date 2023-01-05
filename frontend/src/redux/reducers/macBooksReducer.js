@@ -1,5 +1,6 @@
 const initialState = {
-    macbooks: []
+    allProducts: [],
+    oneProduct: []
 }
 
 const macBooksReducer = (state = initialState, action) => {
@@ -10,8 +11,14 @@ const macBooksReducer = (state = initialState, action) => {
 
             return{
                 ...state,
-                macbooks: action.payload,
+                allProducts: action.payload,
             }
+
+            case "ONE_PROD_APPLE":
+                return {
+                    ...state, 
+                    oneProduct: action.payload
+                }
 
             default: 
             return state

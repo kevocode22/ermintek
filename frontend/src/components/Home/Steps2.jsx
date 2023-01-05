@@ -15,9 +15,8 @@ const Steps2 = () => {
             </svg>
           </div>
     
-          <h2 className="mt-4 text-3xl font-semibold text-white">Buscá tu producto</h2>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Encontrá el producto que buscás en el catálogo. Encontrarás sus características y especificaciones.</h2>
     
-          <p className="mt-4 text-lg text-white">Mirá las características y especificaciones del producto y agregalo al carrito de compras.</p>
     
           <div className="mt-12 flex transform items-center justify-center transition-transform duration-150 ease-in-out hover:scale-90">
             <img src='https://i.imgur.com/wPPQQJ7.png'  alt="paso1" style={{objectFit:"contain"}}></img>
@@ -33,9 +32,8 @@ const Steps2 = () => {
             </svg>
           </div>
     
-          <h2 className="mt-4 text-3xl font-semibold text-white">Seleccioná el medio de pago</h2>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Podés elegir el medio de pago que prefieras: Efectivo, transferencia y criptomonedas!</h2>
     
-          <p className="mt-4 text-lg text-white">Efectivo, transferencia o criptomonedas! Próximamente en cuotas con Wibond!</p>
     
           <div className="mt-12 flex transform items-center justify-center transition-transform duration-150 ease-in-out hover:scale-90">
           <img src='https://i.imgur.com/IqM8gbE.png' alt="paso1" style={{objectFit:"contain"}}></img>
@@ -52,9 +50,8 @@ const Steps2 = () => {
             </svg>
           </div>
     
-          <h2 className="mt-4 text-3xl font-semibold text-white">Contactate con nosotros</h2>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Contactate con nosotros mediante llamada o Whatsapp para coordinar medios de pago y tiempo de entrega. Se te entregará un comprobante de tu compra.</h2>
     
-          <p className="mt-4 text-lg text-white">Mediante whatsapp o envianos un email para concretar el pago y coordinar el envío.</p>
     
           <div className="mt-12 flex transform items-center justify-center transition-transform duration-150 ease-in-out hover:scale-90">
           <img src='https://i.imgur.com/dWEIi2T.png' alt="paso1" style={{objectFit:"contain"}}></img>
@@ -71,9 +68,9 @@ const Steps2 = () => {
             </svg>
           </div>
     
-          <h2 className="mt-4 text-3xl font-semibold text-white">Esperá que te llegue</h2>
+          <h2 className="mt-4 text-3xl font-semibold text-white">Esperá en la comodidad de tu casa. Hacemos envíos a todo el país. Dentro de CABA, los envíos son gratuitos. </h2>
     
-          <p className="mt-4 text-lg text-white">Envíos a todo el país, utilizando transportes de confianza o el de tu preferencia.</p>
+          <p className="mt-4 text-lg text-white"></p>
     
           <div className="mt-12 flex transform items-center justify-center transition-transform duration-150 ease-in-out hover:scale-90">
           <img src='https://i.imgur.com/OxrtZhV.png' alt="paso1" style={{objectFit:"contain"}}></img>

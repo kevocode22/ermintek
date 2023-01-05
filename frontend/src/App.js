@@ -12,6 +12,7 @@ import usuariosActions from './redux/actions/usuariosActions';
 import laptopsActions from "./redux/actions/laptopsActions";
 import macBooksActions from "./redux/actions/macBooksActions";
 import  DetailsCellPhone  from "./components/CellPhones/DetailsCellPhone";
+import ComputersDetails from './components/Computers/DetailsComputers'
 
 function App() {
 
@@ -54,6 +55,8 @@ function App() {
         <Route path="/precios" element={<Precios />} />
         <Route path="/apple" element={<Apple />} />
         <Route path="/celulares/caracteristicas/:id" element={<DetailsCellPhone />} />
+        <Route path="/celulares/caracteristicas/:id" element={<DetailsCellPhone />} />
+        <Route path="/computadoras/caracteristicas/:id" element={<ComputersDetails />} />
       </Routes>
       <Footer />
       <ScrollToTop

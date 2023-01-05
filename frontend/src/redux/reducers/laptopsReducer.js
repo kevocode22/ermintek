@@ -1,5 +1,6 @@
 const initialState = {
-    laptops: []
+    laptops: [],
+    oneLaptop: []
 }
 
 const laptopsReducer = (state = initialState, action) => {
@@ -12,7 +13,11 @@ const laptopsReducer = (state = initialState, action) => {
                 ...state,
                 laptops: action.payload,
             }
-
+            case "GET_ONE_LAP":
+                return{
+                    ...state,
+                    oneLaptop: action.payload,
+                }
             default: 
             return state
     }

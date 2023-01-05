@@ -1,4 +1,4 @@
-const Laptop = require('../models/laptopASUS')
+const Laptop = require('../models/computadoras')
 
 
 const laptopControllers = {

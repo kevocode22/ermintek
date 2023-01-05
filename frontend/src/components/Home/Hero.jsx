@@ -35,7 +35,7 @@ const Hero = () => {
             style={{ "height": "33rem", "width": "100%", paddingBottom: "5rem"}}
           />
           <div className="carousel-caption hidden md:block absolute text-center">
-            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>TIENDA DE CELULARES E INFORMÁTICA</h2>
+            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>TIENDA ONLINE DE CELULARES</h2>
             
           </div>
         </div>
@@ -47,7 +47,7 @@ const Hero = () => {
             style={{ "height": "33rem", "width": "100%" }}
           />
           <div className="carousel-caption hidden md:block absolute text-center">
-            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>NOTEBOOKS Y PC DE ESCRITORIO</h2>
+            <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504]'>NOTEBOOKS Y PC DE ESCRITORIO ENSAMBLADAS</h2>
           </div>
         </div>
       </div>
