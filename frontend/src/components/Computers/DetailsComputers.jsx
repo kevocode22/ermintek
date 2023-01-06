@@ -69,7 +69,7 @@ dispatch(computersActions.getOneLaptop(id));
                     {props?.name}
                   </h1>
                   <br />
-                  <div className="mt-0.5 text-sm text-gray-400 w-full">
+                  <div className="mt-0.5 text-sm text-white w-full">
                     <p className="">{description?.p1}</p> <br />
                     <p>{description?.p2}</p>
                     <br />

@@ -1,6 +1,7 @@
 const initialState = {
     celulares: [],
-    oneCelular:[]
+    oneCelular: [],
+    filter:[]
 }
 
 const celularesReducer = (state = initialState, action) => {
@@ -8,19 +9,25 @@ const celularesReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case "GETCELS":
-
-            return{
+            return {
                 ...state,
                 celulares: action.payload,
             }
 
         case "GETONECEL":
-            return{
+            return {
                 ...state,
                 oneCelular: action.payload
             }
 
-            default: 
+        case "FILTER_CELLS":
+            let cellphoneFilter = state.celulares.filter(cel => cel.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
+            console.log(cellphoneFilter)
+            return {
+                ...state,
+                filter: cellphoneFilter
+            }
+        default:
             return state
     }
 }

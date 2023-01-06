@@ -59,7 +59,7 @@ const Computadoras = () => {
 
     return (
         <section className='flex justify-center flex-wrap p-10 w-full'>
-   <div className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white">
+   <div className="text-center lg:text-left rounded bg-[#1412a0c5] p-8 m-1 text-white">
                     <img src={imageAside} alt="Man grabbing a laptop" style={{ height: "20rem",width:"15rem", objectFit:"cover"}} />
                     <h2 className="text-2xl font-bold">Computadoras</h2>
                     <p className="mt-4 max-w-[45ch] text-sm">

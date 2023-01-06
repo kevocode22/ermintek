@@ -2,15 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 body {
 
     background-image: url("../assets/ermintek.svg");
     background-attachment: fixed;
     background-size: cover;
     stroke: none;
-    background-color: #111328
+    background-color: #111328;
+    font-family: 'Jost' !important;
 }
 
 /*ScrollBar*/
@@ -35,7 +34,7 @@ body::-webkit-scrollbar-thumb {
 .cardSteps h2 {
     text-shadow: 2px 8px 45px rgba(0, 0, 0, 0.418);
     font-family: 'Fjalla One', sans-serif;
-    font-size: 5rem !important;
+    font-size: 2rem !important;
     text-transform: uppercase;
     line-height: 5.5rem !important;
     letter-spacing: 0.2rem;

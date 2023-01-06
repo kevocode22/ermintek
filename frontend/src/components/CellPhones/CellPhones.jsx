@@ -1,14 +1,42 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import imageAside from "../../assets/girlWithPhone.png";
 import { Link as LinkRouter } from "react-router-dom";
+import { useEffect, useState } from "react";
+import celularesActions from "../../redux/actions/celularesActions";
 
 function CellPhones() {
-  const celulares = useSelector((store) => store.celularesReducer.celulares);
-  
+  const [search, setSearch] = useState("")
+const dispatch = useDispatch()
 
+useEffect(() => {
+ let res = dispatch(celularesActions?.filterCellphones(search))
+ console.log(res)
+  //eslint-disable-next-line
+}, [])
+
+let filtro = useSelector(store => store.celularesReducer.celulares)
+console.log(filtro)
+
+const cellFilter = filtro.filter ((cellphone) => {
+  if (cellphone.name.toUpperCase( ).includes (search.toUpperCase( ))) {
+  return true;
+  }
+  return false;
+  });
+
+const handleChange = async (event) => {
+
+  setSearch (event.target.value);
+  
+  };
+  
   return (
     <>
+    <div className="w-full flex justify-center items-center py-4">
+      <input type='text' className='input-style w-3/4 ' placeholder='Busca por nombre...' value = {search} onChange = {handleChange} />
+      </div>
       <section className="flex justify-center flex-wrap p-10 w-full">
+        
         <div
           className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake"
           style={{ animation: "animate__ animated animate__headShake" }}
@@ -17,17 +45,18 @@ function CellPhones() {
             src={imageAside}
             alt="Girl grabbing a phone"
             style={{ height: "20rem", width: "15rem", objectFit: "cover" }}
-          />
+          /> 
           <h2 className="text-2xl font-bold">Celulares</h2>
           <p className="mt-4 max-w-[45ch] text-sm">
             Xiaomi, Asus, Nubia y más!
           </p>
         </div>
-        {celulares.map((cellphone, index) => (
+        {cellFilter.length > 0 ? (
+        cellFilter?.map((cellphone, index) => 
           <div key={index} className="w-60 bg-white shadow rounded m-1">
             <div
               className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
-              style={{ backgroundImage: `url(${cellphone.image.img1})` }}
+              style={{ backgroundImage: `url(${cellphone.image?.img1})` }}
             >
               <div className="flex justify-between">
                 <button
@@ -68,7 +97,7 @@ Ver Más                </button>
               </LinkRouter>
             </div>
           </div>
-        ))}
+      )):(<p className="text-white text-9xl w-4/6 p-10 font-[Jost] ">No hemos encontrada nada que coincida con tu búsqueda🔍...</p>)}
         )
       </section>
     </>

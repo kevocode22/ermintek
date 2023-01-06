@@ -7,30 +7,29 @@ function AppleProducts() {
   const appleProducts = useSelector(
     (store) => store.macBooksReducer.allProducts.laptops
   );
-  console.log(appleProducts);
 
   return (
     <>
       <section className="flex justify-center flex-wrap p-10 w-full">
         <div
-          className="text-center lg:text-left rounded bg-[#e46804] p-8 m-1 text-white hover:animate__headShake"
+          className="text-center lg:text-left rounded bg-[#05000070] p-8 m-1 text-white hover:animate__headShake"
           style={{ animation: "animate__ animated animate__headShake" }}
         >
           <img
             src={imageAside}
             alt="Girl grabbing a phone"
-            style={{ height: "20rem", width: "15rem", objectFit: "cover" }}
+            style={{ height: "20rem", width: "15rem", objectFit: "contain" }}
           />
-          <h2 className="text-2xl font-bold">Celulares</h2>
+          <h2 className="text-2xl font-bold">Productos Apple</h2>
           <p className="mt-4 max-w-[45ch] text-sm">
-            Xiaomi, Asus, Nubia y más!
+            Iphone, Ipad y Macbook!
           </p>
         </div>
-        {appleProducts.map((apple, index) => (
+        {appleProducts?.map((apple, index) => (
           <div key={index} className="w-60 bg-white shadow rounded m-1">
             <div
               className="h-80 w-full bg-gray-200 flex flex-col justify-between p-2 bg-contain bg-no-repeat bg-center object-cover"
-              style={{ backgroundImage: `url(${apple.image.img1})` }}
+              style={{ backgroundImage: `url(${apple?.image.img1})` }}
             >
               <div className="flex justify-between">
                 <button

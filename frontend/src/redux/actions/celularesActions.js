@@ -17,9 +17,17 @@ const celularesActions = {
             dispatch({ type: "GETONECEL", payload: res.data.response });
             return res
         }
-        
+
     },
-    
+
+    filterCellphones: (input) => {
+        return (dispatch, getState) => {
+            dispatch({ type: 'FILTER_CELLS', payload: input })
+        }
+    }
+
+
+
 }
 
 export default celularesActions

@@ -11,8 +11,8 @@ const DetailsCellPhone = () => {
   const dispatch = useDispatch();
   const [dolar, setDolar] = useState([]);
   const { id } = useParams();
-  const detailsCell = useSelector((store) => store.celularesReducer.oneCelular);
-  const { image, details, ...props } = detailsCell;
+  const oneProductDetails = useSelector((store) => store.macBooksReducer.oneProduct);
+  const { image, details, ...props } = oneProductDetails;
 
   useEffect(() => {
     dispatch(macActions.getOneAppleProd(id));
@@ -32,7 +32,7 @@ const DetailsCellPhone = () => {
     <>
       <section>
         <button
-          onClick={() => navigate("/celulares")}
+          onClick={() => navigate("/apple")}
           className="bg-orange-500 rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
         >
           {`< Volver`}
@@ -83,16 +83,16 @@ const DetailsCellPhone = () => {
                   <p>{props?.description}</p>
                   <div>
                     <h3 className="text-white">Características</h3>
-                    {props.features?.map((f) => (
-                      <p className="text-white">
-                        Pantalla:{f.Pantalla} <br />
-                        Procesador:{f.Procesador} <br />
-                        RAM:{f.RAM} <br />
-                        Almacenamiento:{f.Almacenamiento} <br />
-                        Expansión:{f.Expansion} <br />
-                        Cámara:{f.Cámara} <br />
-                        Batería:{f.Batería} <br />
-                        OS:{f.OS} <br />
+                    {props.features?.map((f, index) => (
+                      <p key={index} className="text-white">
+                        Pantalla:{f?.Pantalla} <br />
+                        Procesador:{f?.Procesador} <br />
+                        RAM:{f?.RAM} <br />
+                        Almacenamiento:{f?.Almacenamiento} <br />
+                        Expansión:{f?.Expansion} <br />
+                        Cámara:{f?.Cámara} <br />
+                        Batería:{f?.Batería} <br />
+                        OS:{f?.OS} <br />
                       </p>
                     ))}
                   </div>
@@ -103,20 +103,22 @@ const DetailsCellPhone = () => {
                       className="flex justify-start flex-col text-white bg-black rounded-md"
                     >
                       <ul>
-                        -Versión {d.Ram}GB RAM / {d.Storage}GB ALMACENAMIENTO:{" "}
+                        -Versión {d?.Ram}GB RAM / {d?.Storage}GB ALMACENAMIENTO:{" "}
                         <br />
                         <NumericFormat
-                          value={d.Price * 0.25 + d.Price}
+                          value={d?.Price * 0.12 + d?.Price}
                           displayType={"text"}
                           thousandSeparator={true}
                           prefix={" USD "}
+                          decimalScale={0}
                           className="text-xl font-semibold"
                         />
                         {" |"}
                         <NumericFormat
-                          value={(d.Price * 0.25 + d.Price) * dolar}
+                          value={(d?.Price * 0.12 + d?.Price) * dolar}
                           displayType={"text"}
                           thousandSeparator={true}
+                          decimalScale={0}
                           prefix={" ARS "}
                           className="text-xl font-semibold"
                         />
