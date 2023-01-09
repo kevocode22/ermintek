@@ -1,6 +1,7 @@
 const initialState = {
     productos: [],
-    uno: []
+    uno: [],
+    favourites: [],
 }
 
 const productReducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 uno: action.payload
+            }
+        case 'GET_FAVS':
+            return {
+                ...state,
+                favourites: action.payload
             }
         default:
             return state

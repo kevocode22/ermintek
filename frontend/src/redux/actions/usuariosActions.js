@@ -65,7 +65,6 @@ const usuariosActions = {
           },
         })
         .then((res) => {
-          // console.log(res)
           if (res.data.success) {
             dispatch({ type: "USER", payload: res.data.response });
             dispatch({
@@ -76,7 +75,6 @@ const usuariosActions = {
                 success: res.data.success,
               },
             });
-            // console.log(token)
           } else {
             localStorage.removeItem("token");
           }

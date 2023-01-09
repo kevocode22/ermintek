@@ -22,7 +22,6 @@ const celularesReducer = (state = initialState, action) => {
 
         case "FILTER_CELLS":
             let cellphoneFilter = state.celulares.filter(cel => cel.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
-            console.log(cellphoneFilter)
             return {
                 ...state,
                 filter: cellphoneFilter

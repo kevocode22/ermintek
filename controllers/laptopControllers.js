@@ -84,6 +84,43 @@ const laptopControllers = {
 			success: error ? false : true,
 			error: error
 		})
-	}
+	},
+
+	likeDislike: async (req, res) => {
+        const { idLaptop } = req.body
+        let cantidad = 1
+        try {
+            let likeExiste = await Laptop.findOne({ idLaptop })
+           
+            if (likeExiste !== null) {
+
+                cantidad = parseFloat(likeExiste.likes) + 1
+                const likesDone = await Laptop.findOneAndUpdate({ idLaptop }, {
+                    $set: {
+                        "likes": cantidad
+                    }
+                }, { new: true })
+                res.json({
+                    success: true,
+                    response: { likesDone },
+                    message: "Tus favoritos se han actualizado"
+                })
+            }
+            else {
+                const likesDones = await Laptop({ idLaptop, cantidad }).save()
+                res.json({
+                    success: true,
+                    response: { likesDones },
+                    message: "Gracias por tu Like"
+                })
+            }
+        }
+        catch (error) {
+            res.json({
+                success: false,
+                message: "Perdón, no pudimos añadirlo a tus favoritos 😞"
+            })
+        }
+    },
 }
 module.exports = laptopControllers

@@ -3,7 +3,6 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './nav.css'
 import Logo from '../../assets/Logos/logoLightTransparent.png'
-import Avatar from '../../assets/user.png'
 import { Link, useNavigate, Link as LinkRouter} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import usuariosActions from '../../redux/actions/usuariosActions'
@@ -28,7 +27,6 @@ const Nav = () => {
   const [reload, setReload] = useState(false)
   const [dolar, setDolar] = useState([])
   const usuario = useSelector(store => store.usuariosReducer.user)
-  // console.log(usuario)
 
  useEffect(()=>{
 axios.get('https://api.bluelytics.com.ar/v2/latest')
@@ -39,7 +37,6 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
   console.error(error)
 })
  },[])
-// console.log(dolar)
 
 
   async function desloguearse() {
@@ -54,7 +51,7 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
 
   return (
 
-    <Disclosure as="nav" className="bg-black bg-opacity-50 uppercase NavBar animate__animated animate__backInLeft h-20">
+    <Disclosure as="nav" className="bg-black bg-opacity-50 uppercase NavBar animate__animated animate__backInLeft h-30 fixed z-50 w-full">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-xs">
@@ -72,10 +69,10 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
               </div>
               <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
 
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center  w-16">
                   <Link to='/home'>
                     <img
-                      className="h-20 w-20"
+                      className="h-full"
                       src={Logo}
                       alt="Ermintek"
                     />
@@ -88,7 +85,7 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
                         key={item.name}
                         to={item.to}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-[#e46904d3] hover:text-white hover:animate-pulse',
+                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 textNeon hover:bg-[#ab5daad8] hover:text-white hover:animate-pulse',
                           'px-3 py-2 rounded-md text-lg'
                         )}
                         aria-current={item.current ? 'page' : undefined}

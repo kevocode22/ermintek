@@ -2,12 +2,13 @@ const mongoose = require('mongoose');
 
 const laptopSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    model: { type: String},
+    model: { type: String },
     brand: { type: String },
-    description: { "p1": { type: String },
-    "p2": { type: String},
-    "p3": {type: String}
-},
+    description: {
+        "p1": { type: String },
+        "p2": { type: String },
+        "p3": { type: String }
+    },
     image: {
         img1: { type: String },
         img2: { type: String },
@@ -17,7 +18,7 @@ const laptopSchema = new mongoose.Schema({
         {
             "Pantalla": { type: String },
             "Procesador": { type: String },
-            "Graficos":{ type: String },
+            "Graficos": { type: String },
             "RAM": { type: String },
             "Almacenamiento": { type: String },
             "Batería": { type: String },
@@ -25,9 +26,10 @@ const laptopSchema = new mongoose.Schema({
             "Código": { type: String }
         }
     ],
-    price: {type:Number},
+    price: { type: Number },
     review: { type: String },
-    tags: { type: String }
+    tags: { type: String },
+    likes: { type: Array }
 })
 
 const laptop = mongoose.model('computadora', laptopSchema)

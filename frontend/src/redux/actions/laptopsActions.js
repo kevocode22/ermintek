@@ -18,6 +18,15 @@ const laptopsActions = {
         }
         
     },
+
+    likeDislike: (id)=>{
+        return async(dispatch,getState)=>{
+            const res = await axios.put(localUrl+`api/laptops/likes/${id}`)
+            dispatch({type: 'message', payload:{view: true, message: res.data.message, success: res.data.success}})
+            return res.data.response
+        }
+      },
+    
 }
 
 export default laptopsActions

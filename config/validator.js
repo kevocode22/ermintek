@@ -1,8 +1,6 @@
 const joi = require('joi')
 
 const validator = (req, res, next) => {
-    //console.log("req.body es")
-    //console.log(req.body)
     const schema = joi.object({
         nombre: joi.string()
             .max(20)
@@ -43,7 +41,6 @@ const validator = (req, res, next) => {
         from: joi.string()
     })
     const validation = schema.validate(req.body.data, { abortEarly: false })
-    console.log("VALIDATION", validation)
     if (validation.error) {
         return res.json({ success: false, from: 'validator', message: validation.error.details, test: validation })
     }

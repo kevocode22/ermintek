@@ -7,16 +7,19 @@ import "../Computers/computers.css";
 import { NumericFormat } from "react-number-format";
 
 const DetailsCellPhone = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dolar, setDolar] = useState([]);
   const { id } = useParams();
   const detailsComputer = useSelector(
-    (store) => store.laptopsReducer.oneLaptop);
+    (store) => store.laptopsReducer.oneLaptop
+  );
 
   const { image, description, ...props } = detailsComputer;
   useEffect(() => {
-dispatch(computersActions.getOneLaptop(id));
+    dispatch(computersActions.getOneLaptop(id));
     axios
       .get("https://api.bluelytics.com.ar/v2/latest")
       .then((res) => {
@@ -31,10 +34,10 @@ dispatch(computersActions.getOneLaptop(id));
 
   return (
     <>
-      <section>
+      <section className="pt-28">
         <button
           onClick={() => navigate("/computadoras")}
-          className="bg-orange-500 rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
+          className="bg-[#832780] rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
         >
           {`< Volver`}
         </button>
@@ -44,20 +47,20 @@ dispatch(computersActions.getOneLaptop(id));
               <img
                 alt="Foto principal de celular"
                 src={image?.img1}
-                className="aspect-square w-full rounded-xl object-cover"
+                className="aspect-square w-full rounded-xl object-contain"
               />
 
               <div className="grid grid-cols-2 gap-4 lg:mt-4">
                 <img
                   alt="Foto secundaria celular"
                   src={image?.img2}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
 
                 <img
                   alt="Foto terciaria celular"
                   src={image?.img3}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
               </div>
             </div>
@@ -100,23 +103,26 @@ dispatch(computersActions.getOneLaptop(id));
                   <h3 className="text-white">Precio</h3>
 
                   <ol className="flex justify-start flex-col text-white bg-black rounded-md">
-                    <ul>      <NumericFormat
-                          value={props.price * 0.20 + props.price}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          decimalScale={0}
-                          prefix={" USD "}
-                          className="text-xl font-semibold"
-                        />
-                        {" |"}
-                        <NumericFormat
-                          value={(props.price * 0.12 + props.price) * dolar}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          decimalScale={0}
-                          prefix={" ARS "}
-                          className="text-xl font-semibold"
-                        /></ul>
+                    <ul>
+                      {" "}
+                      <NumericFormat
+                        value={props.price * 0.2 + props.price}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        decimalScale={0}
+                        prefix={" USD "}
+                        className="text-xl font-semibold"
+                      />
+                      {" |"}
+                      <NumericFormat
+                        value={(props.price * 0.12 + props.price) * dolar}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        decimalScale={0}
+                        prefix={" ARS "}
+                        className="text-xl font-semibold"
+                      />
+                    </ul>
                   </ol>
                 </div>
               </div>

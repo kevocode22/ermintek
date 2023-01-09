@@ -9,7 +9,7 @@ const { getCellPhones, addCellPhone, modifyCellPhone, removeCellPhone } = requir
 const { signIn, signUp, verifyToken, verifyMail } = require('../controllers/usuariosControllers')
 const { addProduct, modifyProduct, deleteProduct, getUserProducts } = require('../controllers/cartControllers')
 const { addMacBook, getMacBooks, getOneMacbook, modifyMacBook, removeMacBook } = require('../controllers/macBookControllers');
-const { addLaptop, getLaptops, getOneLaptop, modifyLaptop, removeLaptop } = require('../controllers/laptopControllers');
+const { addLaptop, getLaptops, getOneLaptop, modifyLaptop, removeLaptop, likeDislike } = require('../controllers/laptopControllers');
 
 //Rutas Celulares
 Router.route('/cellphones')
@@ -46,6 +46,9 @@ Router.route('/laptops/:id')
     .get(getOneLaptop)
     .delete(removeLaptop)
     .put(modifyLaptop)
+
+    Router.route('/laptops/likes/:id')
+    .put(likeDislike)
 
     //Rutas para controlar productos MacBook
 Router.route('/macbooks')

@@ -7,11 +7,14 @@ import "../CellPhones/cellphones.css";
 import { NumericFormat } from "react-number-format";
 
 const DetailsCellPhone = () => {
+  window.scrollTo({ top: 0, behavior: "smooth", animation: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dolar, setDolar] = useState([]);
   const { id } = useParams();
-  const oneProductDetails = useSelector((store) => store.macBooksReducer.oneProduct);
+  const oneProductDetails = useSelector(
+    (store) => store.macBooksReducer.oneProduct
+  );
   const { image, details, ...props } = oneProductDetails;
 
   useEffect(() => {
@@ -30,10 +33,10 @@ const DetailsCellPhone = () => {
 
   return (
     <>
-      <section>
+      <section className="pt-28">
         <button
           onClick={() => navigate("/apple")}
-          className="bg-orange-500 rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
+          className="bg-[#832780] rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
         >
           {`< Volver`}
         </button>
@@ -43,20 +46,20 @@ const DetailsCellPhone = () => {
               <img
                 alt="Foto principal de celular"
                 src={image?.img1}
-                className="aspect-square w-full rounded-xl object-cover"
+                className="aspect-square w-full rounded-xl object-contain"
               />
 
               <div className="grid grid-cols-2 gap-4 lg:mt-4">
                 <img
                   alt="Foto secundaria celular"
                   src={image?.img2}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
 
                 <img
                   alt="Foto terciaria celular"
                   src={image?.img3}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
               </div>
             </div>
@@ -97,34 +100,35 @@ const DetailsCellPhone = () => {
                     ))}
                   </div>
                   <h3 className="text-white">Precios</h3>
-                  {details?.map((d, index) => (
-                    <ol
-                      key={index}
-                      className="flex justify-start flex-col text-white bg-black rounded-md"
-                    >
-                      <ul>
-                        -Versión {d?.Ram}GB RAM / {d?.Storage}GB ALMACENAMIENTO:{" "}
-                        <br />
-                        <NumericFormat
-                          value={d?.Price * 0.12 + d?.Price}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          prefix={" USD "}
-                          decimalScale={0}
-                          className="text-xl font-semibold"
-                        />
-                        {" |"}
-                        <NumericFormat
-                          value={(d?.Price * 0.12 + d?.Price) * dolar}
-                          displayType={"text"}
-                          thousandSeparator={true}
-                          decimalScale={0}
-                          prefix={" ARS "}
-                          className="text-xl font-semibold"
-                        />
-                      </ul>
-                    </ol>
-                  ))}
+                  {details &&
+                    details.map((d, index) => (
+                      <ol
+                        key={index}
+                        className="flex justify-start flex-col text-white bg-black rounded-md"
+                      >
+                        <ul>
+                          -Versión {d.Ram}GB RAM / {d.Storage}GB ALMACENAMIENTO:{" "}
+                          <br />
+                          <NumericFormat
+                            value={d.Price * 0.12 + d.Price}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            prefix={" USD "}
+                            decimalScale={0}
+                            className="text-xl font-semibold"
+                          />
+                          {" |"}
+                          <NumericFormat
+                            value={(d.Price * 0.12 + d.Price) * dolar}
+                            displayType={"text"}
+                            thousandSeparator={true}
+                            decimalScale={0}
+                            prefix={" ARS "}
+                            className="text-xl font-semibold"
+                          />
+                        </ul>
+                      </ol>
+                    ))}
                 </div>
               </div>
             </div>

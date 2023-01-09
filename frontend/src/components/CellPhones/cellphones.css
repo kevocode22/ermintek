@@ -1,12 +1,12 @@
-
-
-p, ul{
-  font-family: 'Jost' !important;
+p,
+ul {
+  font-family: "Jost" !important;
   line-height: 1.2;
   font-weight: 200;
   font-size: 1rem !important;
 }
 
-h1, h3{
+h1,
+h3 {
   letter-spacing: 0.1rem;
 }

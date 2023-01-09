@@ -16,6 +16,7 @@ import ComputersDetails from './components/Computers/DetailsComputers';
 import AppleDetails from './components/Apple/AppleDetails'
 
 function App() {
+  window.scrollTo({ top: 0, behavior: "smooth" })
 
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ function App() {
           className: '',
           style: {
             boxShadow: "0px 3px 10px rgba(8, 8, 8, 0.413)",
-            background: '#D36206',
+            background: '#832780',
             padding: '1rem',
             color: '#ffff',
             textAlign: "center",
@@ -61,7 +62,7 @@ function App() {
       </Routes>
       <Footer />
       <ScrollToTop
-        style={{ backgroundColor: "#e46804", paddingLeft: "0.4rem", borderRadius: "50%" }}
+        style={{ backgroundColor: "#832780", paddingLeft: "0.4rem", borderRadius: "50%", color:"#fffff" }}
         smooth
       />
     </>

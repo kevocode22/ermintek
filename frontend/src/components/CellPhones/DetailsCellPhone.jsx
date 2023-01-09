@@ -7,6 +7,7 @@ import "../CellPhones/cellphones.css";
 import { NumericFormat } from "react-number-format";
 
 const DetailsCellPhone = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" })
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [dolar, setDolar] = useState([]);
@@ -30,10 +31,10 @@ const DetailsCellPhone = () => {
 
   return (
     <>
-      <section>
+      <section className="pt-28">
         <button
           onClick={() => navigate("/celulares")}
-          className="bg-orange-500 rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
+          className="bg-[#832780] rounded-sm text-white button px-3 m-4 text-xl shadow-emerald-300 fixed z-10"
         >
           {`< Volver`}
         </button>
@@ -43,20 +44,20 @@ const DetailsCellPhone = () => {
               <img
                 alt="Foto principal de celular"
                 src={image?.img1}
-                className="aspect-square w-full rounded-xl object-cover"
+                className="aspect-square w-full rounded-xl object-contain block"
               />
 
               <div className="grid grid-cols-2 gap-4 lg:mt-4">
                 <img
                   alt="Foto secundaria celular"
                   src={image?.img2}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
 
                 <img
                   alt="Foto terciaria celular"
                   src={image?.img3}
-                  className="aspect-square w-full rounded-xl object-cover"
+                  className="aspect-square w-full rounded-xl object-contain"
                 />
               </div>
             </div>
