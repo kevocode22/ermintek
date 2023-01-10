@@ -9,7 +9,7 @@ const Banner = () => {
 <source src='https://i.imgur.com/dlRhXlM.mp4' className="-z-30"/> 
 </video>
 <div className="flex flex-col items-center" >
-  <h2 className="textBanner sm:text-md">Nuevo Iphone 14 Pro</h2>
+  <h2 className="textBanner sm:text-sm">Nuevo Iphone 14 Pro</h2>
 </div>
 </div>
   ) 
