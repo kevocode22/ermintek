@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const localUrl = 'http://localhost:4000/'
+const localUrl = 'https://ermintek.onrender.com/'
 
 const laptopsActions = {
     getLaptops: () => {

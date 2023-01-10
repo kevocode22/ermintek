@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let localUrl = "http://localhost:4000";
+let localUrl = "https://ermintek.onrender.com";
 
 const usuariosActions = {
   registrarse: (data) => {
