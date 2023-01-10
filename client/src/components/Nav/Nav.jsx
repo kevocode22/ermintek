@@ -69,10 +69,10 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
               </div>
               <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
 
-                <div className="flex flex-shrink-0 items-center  w-16">
+                <div className="flex flex-shrink-0 items-center  w-16 sm:max-w-screen-sm">
                   <Link to='/home'>
                     <img
-                      className="h-full"
+                      className="max-h-10"
                       src={Logo}
                       alt="Ermintek"
                     />
