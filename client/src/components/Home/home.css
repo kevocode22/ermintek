@@ -17,12 +17,9 @@
   width: 100%;
   position: absolute;
   z-index: -1;
-  height: 100vh;
+  height: 100vh
 }
 
-.videobanner ::-webkit-media-controls {
-  display: none;
-}
 
 .textBanner {
   margin-top: 26rem;
