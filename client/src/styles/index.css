@@ -86,17 +86,6 @@ body::-webkit-scrollbar-thumb {
     color: white !important;
 }
 
-.NavBar {
-    text-transform: uppercase;
-    font-family: 'Fjalla One';
-    font-size: small !important;
-    letter-spacing: 0.14rem;
-}
-
-.textCarousel {
-    text-shadow: 2px 2px 2px black;
-}
-
 .cardHome:hover{
     animation: animate__headShake;
     animation-duration: 2ms;

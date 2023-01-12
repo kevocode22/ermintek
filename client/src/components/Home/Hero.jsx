@@ -26,27 +26,27 @@ const Hero = () => {
           className='pt-4'
         ></button>
       </div>
-      <div className="carousel-inner relative w-full overflow-hidden">
-        <div className="carousel-item active relative float-left w-full">
+      <div className="carousel-inner relative w-full overflow">
+        <div className="carousel-item active relative w-full">
           <img
             src="https://i.imgur.com/kBnwRmv.png"
-            className="block w-full object-cover animate__animated animate__zoomIn"
+            className="block w-full object-cover animate__animated animate__zoomIn carouselImage1 "
             alt="..."
-            style={{ "height": "33rem", "width": "100%", paddingBottom: "5rem"}}
+            style={{ "height": "33rem", "width": "100%"}}
           />
-          <div className="carousel-caption hidden md:block absolute text-center">
+          <div className="carousel-caption md:block absolute text-center">
             <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#8643a3] shadowText'>TIENDA ONLINE DE CELULARES</h2>
             
           </div>
         </div>
-        <div className="carousel-item relative float-left w-full">
+        <div className="carousel-item relative float-left w-full ">
           <img
             src="https://i.imgur.com/VeInOdG.png"
-            className="block w-full object-contain animate__animated animate__zoomIn"
+            className="block w-full object-cover animate__animated animate__zoomIn carouselImage2"
             alt="..."
             style={{ "height": "33rem", "width": "100%" }}
           />
-          <div className="carousel-caption hidden md:block absolute text-center">
+          <div className="carousel-caption md:block absolute text-center">
             <h2 className='font-["Fjalla_One"] text-5xl leading-tight text-[#ff9504] shadowText'>NOTEBOOKS Y PC DE ESCRITORIO</h2>
           </div>
         </div>
