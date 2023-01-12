@@ -55,8 +55,8 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 text-xs">
-            <div className="relative flex h-28 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div className=" navigationBar relative flex h-28 items-center justify-between">
+              <div className="sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-[#04aa9fdc] hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only text-xs">Open main menu</span>
@@ -67,19 +67,17 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
 
-                <div className="flex flex-shrink-0 items-center  w-16 sm:max-w-screen-sm">
+                <div className="divLogo mt-10">
                   <Link to='/home'>
                     <img
-                      className="max-h-10"
                       src={Logo}
                       alt="Ermintek"
+                      className='logoErmintek'
                     />
                   </Link>
-                </div>
                 <div className="hidden sm:ml-6 sm:block items-center text-sm">
-                  <div className="flex space-x-4 mt-3">
+                  <div className=" navigate flex space-x-4  ml-10">
                     {navigation.map((item) => (
                       <LinkRouter
                         key={item.name}
@@ -97,7 +95,7 @@ axios.get('https://api.bluelytics.com.ar/v2/latest')
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <div className='text-white text-xl'>Dolar: ${dolar.value_sell}</div>
+              <div className='text-white text-sm dolarNav'>Dolar: ${dolar.value_sell}</div>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

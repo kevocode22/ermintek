@@ -2,6 +2,7 @@ import React from 'react'
 import '../../styles/index.css'
 import 'tw-elements';
 import 'animate.css';
+import './home.css'
 
 const Hero = () => {
 
