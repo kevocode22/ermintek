@@ -20,6 +20,10 @@
   height: 100vh;
 }
 
+.videobanner ::-webkit-media-controls {
+  display: none;
+}
+
 .textBanner {
   margin-top: 26rem;
   text-transform: uppercase;
