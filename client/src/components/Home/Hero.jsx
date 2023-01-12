@@ -42,7 +42,7 @@ const Hero = () => {
         <div className="carousel-item relative float-left w-full ">
           <img
             src="https://i.imgur.com/VeInOdG.png"
-            className="block w-full object-cover animate__animated animate__zoomIn carouselImage2"
+            className="block w-full object-contain animate__animated animate__zoomIn carouselImage2"
             alt="..."
             style={{ "height": "33rem", "width": "100%" }}
           />

@@ -56,4 +56,9 @@
 .dolarNav{
     visibility: hidden;
     padding-top: 1rem !important;
-}}
+}
+.divLogo{
+  padding-inline: 4rem;
+  height: 3rem;
+}
+}
